@@ -14,10 +14,10 @@ assignment_attributes = ["state","district","committee_id","subcommittee"]
 #Build Member.csv
 with open(member_csv, "w") as m_out:
 	m_writer = csv.DictWriter(m_out, fieldnames=member_attributes)
-	m_writer.writeheader()
+	#m_writer.writeheader()
 	with open(assignment_csv, "w") as a_out:
 		a_writer = csv.DictWriter(a_out, fieldnames=assignment_attributes)
-		a_writer.writeheader()
+		#a_writer.writeheader()
 
 		root = ET.parse("{}/{}".format(file_folder, xml)).getroot()
 		root = root[1]
@@ -31,9 +31,9 @@ with open(member_csv, "w") as m_out:
 			for attribute in member_attributes:
 				if attribute not in member_data.keys():
 					member_data[attribute] = info.find(attribute).text
-					for bad, replacement in {u'\xfa' : 'u', u'\xe1' : 'a', u'\xe9' : 'e', u'\xf3' : 'b'}.items():
-						if member_data[attribute] and bad in member_data[attribute]:
-							member_data[attribute] = member_data[attribute].replace(bad, replacement)
+					for bad_char, replacement in {u'\xfa' : 'u', u'\xe1' : 'a', u'\xe9' : 'e', u'\xf3' : 'b'}.items():
+						if member_data[attribute] and bad_char in member_data[attribute]:
+							member_data[attribute] = member_data[attribute].replace(bad_char, replacement)
 			m_writer.writerow(member_data)
 
 			for assignment in assignments:
