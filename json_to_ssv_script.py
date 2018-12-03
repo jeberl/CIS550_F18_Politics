@@ -25,7 +25,9 @@ with open(member_csv, "w") as m_out:
 			info = member[1]
 			assignments = member[2]
 			state = member[0].text[0:2]
-			district = member[0].text[2:4]
+			district = int(member[0].text[2:4])
+			if district == 0:
+				district = 1
 
 			member_data = {"state": state, "district" : district, "state-fullname": info.find('state').find('state-fullname').text}
 			for attribute in member_attributes:
@@ -34,7 +36,8 @@ with open(member_csv, "w") as m_out:
 					for bad_char, replacement in {u'\xfa' : 'u', u'\xe1' : 'a', u'\xe9' : 'e', u'\xf3' : 'b'}.items():
 						if member_data[attribute] and bad_char in member_data[attribute]:
 							member_data[attribute] = member_data[attribute].replace(bad_char, replacement)
-			m_writer.writerow(member_data)
+			if member_data['lastname']:
+				m_writer.writerow(member_data)
 
 			for assignment in assignments:
 				comcode = None
