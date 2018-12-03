@@ -1,4 +1,4 @@
-const pwd = '/Users/Jesse/Desktop/UPenn/2018_F/Databases'
+const pwd = '/Users/Jesse/Desktop/UPenn/2018_F/Databases/CIS550_F18_Politics/src/app'
 
 const queries = require(pwd + '/queries.js').queries;
 
@@ -11,7 +11,7 @@ class Backend {
 		//TODO: init connection to Mongo DB
 	}
 
-	get_query_info(query_name) {
+	static get_query_info(query_name) {
 		return(`
 		Query: ${query_name}
 		Inputs : ${queries[query_name]['input_names']}
@@ -42,4 +42,4 @@ module.exports = {
 };
 
 b = new Backend();
-console.log(b.get_query_info("get_all_races_within"));
+console.log(Backend.get_query_info("get_all_races_within"));
