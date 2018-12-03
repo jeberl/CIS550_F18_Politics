@@ -1,3 +1,8 @@
-<p>
-  committee works!
-</p>
+<h2> Select Committee </h2>
+<select (change)="selectCommittee($event.target.value)"> 
+	<option *ngFor="let c of committees" value={{c}}> {{c}} </option>
+</select>
+<h2> Select SubCommittee </h2>
+<select (change)="getMembers($event.target.value)"> 
+	<option *ngFor="let s of subs" value={{s}}> {{s}} </option>
+</select>
