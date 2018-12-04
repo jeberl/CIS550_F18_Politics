@@ -7,6 +7,7 @@ import { TightComponent } from './tight/tight.component';
 import { ContactComponent } from './contact/contact.component';
 import { RunComponent } from './run/run.component';
 import { HomeComponent } from './home/home.component';
+import { CommitteeComponent } from './committee/committee.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomeComponent } from './home/home.component';
     TightComponent,
     ContactComponent,
     RunComponent,
-    HomeComponent
+    HomeComponent,
+    CommitteeComponent
   ],
   imports: [
     BrowserModule,
