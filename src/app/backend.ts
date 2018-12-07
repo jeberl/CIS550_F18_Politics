@@ -4,7 +4,7 @@ const queries = require(pwd + '/queries.js').queries;
 
 var PollModels = Object.freeze({"lite":1, "classic":2, "deluxe":3});
 
-export default class Backend {
+export class Backend {
 	constructor() {
 		//TODO: init connection to SQL DB
 		//TODO: init connection to Mongo DB
@@ -28,7 +28,7 @@ export default class Backend {
 	get_info_for_member(state, district) {}
 	get_all_committees() {}
 	get_all_subcomittees_on_committee(cid) {
-		console.log("Running");
+		console.log("Running the get sub query w/" + cid);
 	}
 	get_all_members_on_committee(cid) {}
 	get_all_members_up_for_reelection_on_committee(cid) {}
@@ -38,11 +38,10 @@ export default class Backend {
 
 }
 
-export { Backend }
-/*module.exports = {
+/* module.exports = {
 	Backend: Backend,
 	PollModels : PollModels,
-}*/
-//b = new Backend();
+} */ 
+
 console.log(Backend.get_query_info("get_all_races_within"));
 

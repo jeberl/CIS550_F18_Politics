@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import * as Backend:any from "../backend.js";
-// import * as Backend from "../backend.js";
+import { Backend } from "../backend";
 
 
 @Component({
@@ -11,11 +11,11 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class CommitteeComponent implements OnInit {
- 
-  //import Backend = require("../backend.js");
   committees = ["Agriculture", "Finance", "Schools", "Idk", "Just A Test"];
   subs = ["super", "specific", "subcommittee"];
-  // constructor() { }
+  //b = require("../backend.js").Backend;
+  b = new Backend();
+  constructor() { }
 
   ngOnInit() {
   	// should populate committee dropdown upon page load
@@ -29,7 +29,7 @@ export class CommitteeComponent implements OnInit {
   // Gets Subcommittees associated with current committee
   getSubs(committee) {
   	// call backend method
-    // this.b.get_all_subcomittees_on_committee(committee);
+    this.b.get_all_subcomittees_on_committee(committee);
   	// subs = output of SQL query
   }
 
