@@ -7,6 +7,22 @@ var PollModels = Object.freeze({"lite":1, "classic":2, "deluxe":3});
 export class Backend {
 	constructor() {
 		//TODO: init connection to SQL DB
+
+		// IF WAS JS WOULD DO LIKE THIS.
+		//var sql = require('oracle');
+		//var connection = sql.createConnection({
+		//	host : process.env.cis450project.cf6ohcdz76sh.us-east-2.rds.amazon.com
+		//	user : process.env.cis450project
+		//	password : process.env.cis450project
+		//	port : process.env.1521
+		//});
+		//connection.connection(function(err) {
+		//	if (err) {
+		//		console.error('Database connection failed: ' + err.stack);
+		//	}
+		//	console.log('Connected to DB');
+		//});
+		// connection.end() upon end of app
 		//TODO: init connection to Mongo DB
 	}
 

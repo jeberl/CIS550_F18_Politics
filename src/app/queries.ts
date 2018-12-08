@@ -10,20 +10,22 @@ let queries = {
 			may not be seeking another term, these will not
 			be included.`,
 		query : 
-			`SELECT m.firstname, m.lastname, p.district, p.state
-			FROM ((
-			SELECT * FROM CommitteeAssignments
-			WHERE committee_id = %1
-			) 
-			JOIN Members m 
+			`SELECT DISTINCT m.firstname, m.lastname, p.district, p.state
+			FROM (SELECT * FROM CommitteeAssignment
+			WHERE committee_id = %1) ca
+			JOIN Member m ON ca.state = m.state AND ca.district = m.district
 			JOIN %2 p ON 
 			m.state = p.state AND
-			m.district = p.district AND
-			m.firstname = p.candidate_first AND
-			m.lastname = p.candidate_last ) t
+			m.district = p.district
 			WHERE p.win_probability = (
-				SELECT MIN(t.p.win_probability)
-				FROM t
+				SELECT MIN(p.win_probability)
+				FROM (SELECT * FROM CommitteeAssignment
+				WHERE committee_id = %1) ca
+				JOIN Member m ON ca.state = m.state AND ca.district = m.district
+				JOIN %2 p ON 
+				m.state = p.state AND
+				m.district = p.district
+				WHERE p.is_incumbent = 1
 			);`
 	},
 	get_member_of_committee_in_closest_race : {
@@ -31,22 +33,26 @@ let queries = {
 		input_names: ['cid', 'poll_model'],
 		description : "Given a committee with id, %1, return the first and last name of the member of the committee in the closest reelection bid, that is who’s win probability is closest to 50% using polling model %2",
 		query : `
-			SELECT *
-			FROM (
-				(
-					SELECT * FROM CommitteeAssignments
-					WHERE committee_id = %1
-				) 
-				JOIN Members m 
-				JOIN %2 p ON 
-				m.state = p.state AND
-				m.district = p.district AND
-				m.firstname = p.candidate_first AND
-				m.lastname = p.candidate_last ) t
-			WHERE p.win_probability = (
-				SELECT MIN(ABS(t.p.win_probability - 50))
-				FROM t
-			);`
+			SELECT DISTINCT m.firstname, m.lastname, p.win_probability
+			FROM (SELECT * FROM CommitteeAssignment
+			WHERE committee_id = %1) ca
+			JOIN Member m ON ca.state = m.state AND ca.district = 
+			m.district JOIN %2 p ON m.state = p.state AND 
+			m.district = p.district
+			WHERE p.is_incumbent = 1 AND p.win_probability + 50 = (
+				SELECT MIN(ABS(p.win_probability - 50))
+				FROM (SELECT * FROM CommitteeAssignment
+				WHERE committee_id = %1) ca
+				JOIN Member m ON ca.state = m.state AND ca.district = 
+				m.district JOIN %2 p ON m.state = p.state AND 
+				m.district = p.district) OR
+				P.win_probability - 50 = (
+				SELECT MIN(ABS(p.win_probability - 50))
+				FROM (SELECT * FROM CommitteeAssignment
+				WHERE committee_id = %1) ca
+				JOIN Member m ON ca.state = m.state AND ca.district = 
+				m.district JOIN %2 p ON m.state = p.state AND 
+				m.district = p.district);`
 	},
 	get_candidates_in_district : {
 		type: 'SQL',
@@ -54,7 +60,7 @@ let queries = {
 		description: `Given a state,  %1, and district, %2, return the list of candidates running in the upcoming election, their party and probability of winning `,
 		query: `
 			SELECT candidate_first, candidate_last, party,
-				Win_probability, incumbent
+			win_probability, is_incumbent
 			FROM PollLite p
 			WHERE p.state = %1 AND p.district = %2;`
 	},
@@ -94,35 +100,21 @@ let queries = {
 		input_names: ['cid'],
 		description: `Given a committee with id, %1,return the district, state,  first and last name of all members of that committee`,
 		query : `
-			SELECT m.firstname, m.lastname, p.district, p.state
-			FROM (
-				(SELECT * FROM CommitteeAssignments
-				WHERE committee_id = %1
-				) 
-				JOIN Members m 
-				JOIN PollLite p ON 
-					m.state = p.state AND
-				m.district = p.district AND
-				m.firstname = p.candidate_first AND
-				m.lastname = p.candidate_last ) t;`
+			SELECT DISTINCT m.firstname, m.lastname, m.district, m.state
+			FROM Member m JOIN CommitteeAssignment ca ON m.district = ca.district AND m.state = ca.state
+			WHERE ca.committee_id = %1;`
 	},
 	get_all_members_up_for_reelection_on_committee: {
 		type: 'SQL',
 		input_names: ['cid'],
 		description: `Given a committee with id, %1 return the district, state, first and last name of all members of that committee who are in a contested election, that is they are running for reelection and have at least 1 opponent or their win percentage is less than 100`,
 		query : `
-			SELECT m.firstname, m.lastname, p.district, p.state
-			FROM ((
-				SELECT * FROM CommitteeAssignments
-				WHERE committee_id = %1
-			) 
-				JOIN Members m 
-				JOIN PollLite p ON 
-					m.state = p.state AND
-					m.district = p.district AND
-					m.firstname = p.candidate_first AND
-					m.lastname = p.candidate_last ) t
-			WHERE p.win_probability < 100;`
+			SELECT DISTINCT m.firstname, m.lastname, p.district, p.state
+			FROM (SELECT * FROM CommitteeAssignment
+			WHERE committee_id = %1) ca
+			JOIN Members m ON m.state = ca.state AND m.district = ca.district
+			JOIN PollLite p ON m.state = p.state AND m.district = p.district 
+			WHERE p.win_probability < 100 AND p.is_incumbent = 1;`
 	},
 	get_all_races_within: {
 		type: 'SQL',
@@ -150,7 +142,7 @@ let queries = {
 		query: `
 			SELECT MAX(district)
 			FROM PollLite
-			WHERE state == ‘%1’`
+			WHERE state == '%1'`
 	},
 	get_member_from_district: {
 		type: 'SQL',
@@ -159,7 +151,7 @@ let queries = {
 		query : `
 			SELECT firstname, lastname
 			FROM Member
-			WHERE state == ‘%1’ AND district == %2`
+			WHERE state == '%1' AND district == '%2'`
 	}
 };
 
