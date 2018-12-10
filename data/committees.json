@@ -1,0 +1,1752 @@
+[
+  {
+    "type": "standing",
+    "committee_id": "AG00",
+    "room": "1301",
+    "header-text": "The chairman and ranking minority member are ex officio members of all subcomitteess.",
+    "zip": "20515",
+    "zip-suffix": "6001",
+    "building-code": "LHOB",
+    "phone": "225-2171",
+    "full_committee_name": "Committee on Agriculture",
+    "ratio": {
+      "majority": "26",
+      "minority": "20"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "AG03",
+        "-subcom-room": "1301",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-2171",
+        "full_subcommittee_name": "Nutrition",
+        "ratio": {
+          "majority": "12",
+          "minority": "9"
+        }
+      },
+      {
+        "subcommittee_code": "AG14",
+        "-subcom-room": "1301",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-2171",
+        "full_subcommittee_name": "Biotechnology, Horticulture, and Research",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "AG15",
+        "-subcom-room": "1301",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-2171",
+        "full_subcommittee_name": "Conservation and Forestry",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "AG16",
+        "-subcom-room": "1301",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-2171",
+        "full_subcommittee_name": "General Farm Commodities and Risk Management",
+        "ratio": {
+          "majority": "12",
+          "minority": "9"
+        }
+      },
+      {
+        "subcommittee_code": "AG22",
+        "-subcom-room": "1301",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-2171",
+        "full_subcommittee_name": "Commodity Exchanges, Energy, and Credit",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "AG29",
+        "-subcom-room": "1301",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-2171",
+        "full_subcommittee_name": "Livestock and Foreign Agriculture",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "AP00",
+    "room": "H305",
+    "header-text": "The chairman and ranking minority member are authorized to sit as  members of all subcomitteess.",
+    "zip": "20515",
+    "zip-suffix": "6015",
+    "building-code": "C",
+    "phone": "225-2771",
+    "full_committee_name": "Committee on Appropriations",
+    "ratio": {
+      "majority": "30",
+      "minority": "22"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "AP01",
+        "-subcom-room": "2362A",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-2638",
+        "full_subcommittee_name": "Agriculture, Rural Development, Food and Drug Administration, and Related Agencies",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "AP02",
+        "-subcom-room": "H405",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-2847",
+        "full_subcommittee_name": "Defense",
+        "ratio": {
+          "majority": "10",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "AP04",
+        "-subcom-room": "HT2",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-2041",
+        "full_subcommittee_name": "State, Foreign Operations, and Related Programs",
+        "ratio": {
+          "majority": "7",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "AP06",
+        "-subcom-room": "2007",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-3081",
+        "full_subcommittee_name": "Interior, Environment, and Related Agencies",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "AP07",
+        "-subcom-room": "2358B",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-3508",
+        "full_subcommittee_name": "Labor, Health and Human Services, Education, and Related Agencies",
+        "ratio": {
+          "majority": "8",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "AP10",
+        "-subcom-room": "2362B",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-3421",
+        "full_subcommittee_name": "Energy and Water Development, and Related Agencies",
+        "ratio": {
+          "majority": "8",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "AP15",
+        "-subcom-room": "2006",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5834",
+        "full_subcommittee_name": "Homeland Security",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "AP18",
+        "-subcom-room": "HVC227",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-3047",
+        "full_subcommittee_name": "Military Construction, Veterans Affairs and Related Agencies",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "AP19",
+        "-subcom-room": "H310",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-3351",
+        "full_subcommittee_name": "Commerce, Justice, Science, and Related Agencies",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "AP20",
+        "-subcom-room": "2358A",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-2141",
+        "full_subcommittee_name": "Transportation, Housing and Urban Development, and Related Agencies",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "AP23",
+        "-subcom-room": "2000",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-7245",
+        "full_subcommittee_name": "Financial Services and General Government",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "AP24",
+        "-subcom-room": "HT2",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "226-7252",
+        "full_subcommittee_name": "Legislative Branch",
+        "ratio": {
+          "majority": "6",
+          "minority": "3"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "AS00",
+    "room": "2216",
+    "zip": "20515",
+    "zip-suffix": "6035",
+    "building-code": "RHOB",
+    "phone": "225-4151",
+    "full_committee_name": "Committee on Armed Services",
+    "ratio": {
+      "majority": "34",
+      "minority": "28"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "AS02",
+        "-subcom-room": "2340",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-7560",
+        "full_subcommittee_name": "Military Personnel",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "AS03",
+        "-subcom-room": "2340",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "226-8979",
+        "full_subcommittee_name": "Readiness",
+        "ratio": {
+          "majority": "11",
+          "minority": "9"
+        }
+      },
+      {
+        "subcommittee_code": "AS06",
+        "-subcom-room": "2119",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "226-5048",
+        "full_subcommittee_name": "Oversight and Investigations",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "AS25",
+        "-subcom-room": "2340",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-4440",
+        "full_subcommittee_name": "Tactical Air and Land Forces",
+        "ratio": {
+          "majority": "14",
+          "minority": "11"
+        }
+      },
+      {
+        "subcommittee_code": "AS26",
+        "-subcom-room": "2340",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "226-2843",
+        "full_subcommittee_name": "Emerging Threats and Capabilities",
+        "ratio": {
+          "majority": "10",
+          "minority": "8"
+        }
+      },
+      {
+        "subcommittee_code": "AS28",
+        "-subcom-room": "2340",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "226-2211",
+        "full_subcommittee_name": "Seapower and Projection Forces",
+        "ratio": {
+          "majority": "11",
+          "minority": "9"
+        }
+      },
+      {
+        "subcommittee_code": "AS29",
+        "-subcom-room": "2340",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-1967",
+        "full_subcommittee_name": "Strategic Forces",
+        "ratio": {
+          "majority": "10",
+          "minority": "8"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "BA00",
+    "room": "2129",
+    "zip": "20515",
+    "zip-suffix": "6050",
+    "building-code": "RHOB",
+    "phone": "225-7502",
+    "full_committee_name": "Committee on Financial Services",
+    "ratio": {
+      "majority": "34",
+      "minority": "26"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "BA01",
+        "-subcom-room": "2129",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-7502",
+        "full_subcommittee_name": "Terrorism and Illicit Finance",
+        "ratio": {
+          "majority": "15",
+          "minority": "12"
+        }
+      },
+      {
+        "subcommittee_code": "BA04",
+        "-subcom-room": "2129",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-7502",
+        "full_subcommittee_name": "Housing and Insurance",
+        "ratio": {
+          "majority": "14",
+          "minority": "11"
+        }
+      },
+      {
+        "subcommittee_code": "BA09",
+        "-subcom-room": "2129",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-7502",
+        "full_subcommittee_name": "Oversight and Investigations",
+        "ratio": {
+          "majority": "13",
+          "minority": "10"
+        }
+      },
+      {
+        "subcommittee_code": "BA15",
+        "-subcom-room": "2129",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-7502",
+        "full_subcommittee_name": "Financial Institutions and Consumer Credit",
+        "ratio": {
+          "majority": "16",
+          "minority": "12"
+        }
+      },
+      {
+        "subcommittee_code": "BA16",
+        "-subcom-room": "2129",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-7502",
+        "full_subcommittee_name": "Capital Markets, Securities, and Investment",
+        "ratio": {
+          "majority": "17",
+          "minority": "13"
+        }
+      },
+      {
+        "subcommittee_code": "BA20",
+        "-subcom-room": "2129",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-7502",
+        "full_subcommittee_name": "Monetary Policy and Trade",
+        "ratio": {
+          "majority": "13",
+          "minority": "10"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "BU00",
+    "room": "B234",
+    "zip": "20515",
+    "zip-suffix": "6065",
+    "building-code": "LHOB",
+    "phone": "226-7270",
+    "full_committee_name": "Committee on the Budget",
+    "ratio": {
+      "majority": "22",
+      "minority": "14"
+    }
+  },
+  {
+    "type": "standing",
+    "committee_id": "ED00",
+    "room": "2176",
+    "header-text": "The chairman and the ranking minority member are ex officio, non-voting members of all subcomitteess to which they are not assigned.",
+    "zip": "20515",
+    "zip-suffix": "6100",
+    "building-code": "RHOB",
+    "phone": "225-4527",
+    "full_committee_name": "Committee on Education and the Workforce",
+    "ratio": {
+      "majority": "23",
+      "minority": "17"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "ED02",
+        "-subcom-room": "2176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-4527",
+        "full_subcommittee_name": "Health, Employment, Labor, and Pensions",
+        "ratio": {
+          "majority": "12",
+          "minority": "9"
+        }
+      },
+      {
+        "subcommittee_code": "ED10",
+        "-subcom-room": "2176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-4527",
+        "full_subcommittee_name": "Workforce Protections",
+        "ratio": {
+          "majority": "9",
+          "minority": "7"
+        }
+      },
+      {
+        "subcommittee_code": "ED13",
+        "-subcom-room": "2176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-4527",
+        "full_subcommittee_name": "Higher Education and Workforce Development",
+        "ratio": {
+          "majority": "13",
+          "minority": "10"
+        }
+      },
+      {
+        "subcommittee_code": "ED14",
+        "-subcom-room": "2176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-4527",
+        "full_subcommittee_name": "Early Childhood, Elementary, and Secondary Education",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "FA00",
+    "room": "2170",
+    "header-text": "The chairman and ranking minority member may attend the meetings and participate in the activities of all subcomitteess except for voting and being counted for a quorum.",
+    "zip": "20515",
+    "zip-suffix": "6128",
+    "building-code": "RHOB",
+    "phone": "225-5021",
+    "full_committee_name": "Committee on Foreign Affairs",
+    "ratio": {
+      "majority": "26",
+      "minority": "21"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "FA05",
+        "-subcom-room": "5190",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "226-7825",
+        "full_subcommittee_name": "Asia and the Pacific",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "FA07",
+        "-subcom-room": "5100",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "226-9980",
+        "full_subcommittee_name": "The Western Hemisphere",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "FA13",
+        "-subcom-room": "5220",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "225-3345",
+        "full_subcommittee_name": "The Middle East and North Africa",
+        "ratio": {
+          "majority": "12",
+          "minority": "9"
+        }
+      },
+      {
+        "subcommittee_code": "FA14",
+        "-subcom-room": "5210",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "226-6434",
+        "full_subcommittee_name": "Europe, Eurasia, and Emerging Threats",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "FA16",
+        "-subcom-room": "5210",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "226-7812",
+        "full_subcommittee_name": "Africa, Global Health, Global Human Rights, and International Organizations",
+        "ratio": {
+          "majority": "5",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "FA18",
+        "-subcom-room": "5100",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "226-1500",
+        "full_subcommittee_name": "Terrorism, Nonproliferation, and Trade",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "GO00",
+    "room": "2157",
+    "header-text": "The chairman and ranking minority member are ex officio members of all subcomitteess.",
+    "zip": "20515",
+    "zip-suffix": "6143",
+    "building-code": "RHOB",
+    "phone": "225-5074",
+    "full_committee_name": "Committee on Oversight and Government Reform",
+    "ratio": {
+      "majority": "24",
+      "minority": "18"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "GO06",
+        "-subcom-room": "2157",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5074",
+        "full_subcommittee_name": "National Security",
+        "ratio": {
+          "majority": "8",
+          "minority": "7"
+        }
+      },
+      {
+        "subcommittee_code": "GO24",
+        "-subcom-room": "2157",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5074",
+        "full_subcommittee_name": "Government Operations",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "GO25",
+        "-subcom-room": "2157",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5074",
+        "full_subcommittee_name": "Information Technology",
+        "ratio": {
+          "majority": "7",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "GO27",
+        "-subcom-room": "2157",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5074",
+        "full_subcommittee_name": "Healthcare, Benefits, and Administrative Rules",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "GO28",
+        "-subcom-room": "2157",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5074",
+        "full_subcommittee_name": "The Interior, Energy and Environment",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "GO29",
+        "-subcom-room": "2157",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5074",
+        "full_subcommittee_name": "Intergovernmental Affairs",
+        "ratio": {
+          "majority": "7",
+          "minority": "5"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "HA00",
+    "room": "1309",
+    "zip": "20515",
+    "zip-suffix": "6157",
+    "building-code": "LHOB",
+    "phone": "225-8281",
+    "full_committee_name": "Committee on House Administration",
+    "ratio": {
+      "majority": "6",
+      "minority": "3"
+    }
+  },
+  {
+    "type": "standing",
+    "committee_id": "HM00",
+    "room": "176",
+    "header-text": "The chairman and ranking minority member are non-voting ex officio members of all subcomitteess on which they do not hold a regular  assignment.",
+    "zip": "20515",
+    "zip-suffix": "6480",
+    "building-code": "FHOB",
+    "phone": "226-8417",
+    "full_committee_name": "Committee on Homeland Security",
+    "ratio": {
+      "majority": "18",
+      "minority": "12"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "HM05",
+        "-subcom-room": "176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "226-8417",
+        "full_subcommittee_name": "Counterterrorism and Intelligence",
+        "ratio": {
+          "majority": "5",
+          "minority": "3"
+        }
+      },
+      {
+        "subcommittee_code": "HM07",
+        "-subcom-room": "176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "226-8417",
+        "full_subcommittee_name": "Transportation and Protective Security",
+        "ratio": {
+          "majority": "5",
+          "minority": "3"
+        }
+      },
+      {
+        "subcommittee_code": "HM08",
+        "-subcom-room": "176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "226-8417",
+        "full_subcommittee_name": "Cybersecurity and Infrastructure Protection",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "HM09",
+        "-subcom-room": "176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "226-8417",
+        "full_subcommittee_name": "Oversight and Management Efficiency",
+        "ratio": {
+          "majority": "5",
+          "minority": "3"
+        }
+      },
+      {
+        "subcommittee_code": "HM11",
+        "-subcom-room": "176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "226-8417",
+        "full_subcommittee_name": "Border and Maritime Security",
+        "ratio": {
+          "majority": "7",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "HM12",
+        "-subcom-room": "176",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "226-8417",
+        "full_subcommittee_name": "Emergency Preparedness, Response, and Communications",
+        "ratio": {
+          "majority": "5",
+          "minority": "3"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "IF00",
+    "room": "2125",
+    "header-text": "The chairman and ranking minority member are ex officio members, with vote, of all subcomitteess.",
+    "zip": "20515",
+    "zip-suffix": "6115",
+    "building-code": "RHOB",
+    "phone": "225-2927",
+    "full_committee_name": "Committee on Energy and Commerce",
+    "ratio": {
+      "majority": "31",
+      "minority": "24"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "IF02",
+        "-subcom-room": "2125",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-2927",
+        "full_subcommittee_name": "Oversight and Investigations",
+        "ratio": {
+          "majority": "10",
+          "minority": "7"
+        }
+      },
+      {
+        "subcommittee_code": "IF03",
+        "-subcom-room": "2125",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-2927",
+        "full_subcommittee_name": "Energy",
+        "ratio": {
+          "majority": "18",
+          "minority": "13"
+        }
+      },
+      {
+        "subcommittee_code": "IF14",
+        "-subcom-room": "2125",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-2927",
+        "full_subcommittee_name": "Health",
+        "ratio": {
+          "majority": "18",
+          "minority": "13"
+        }
+      },
+      {
+        "subcommittee_code": "IF16",
+        "-subcom-room": "2125",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-2927",
+        "full_subcommittee_name": "Communications and Technology",
+        "ratio": {
+          "majority": "17",
+          "minority": "12"
+        }
+      },
+      {
+        "subcommittee_code": "IF17",
+        "-subcom-room": "2125",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-2927",
+        "full_subcommittee_name": "Digital Commerce and Consumer Protection",
+        "ratio": {
+          "majority": "13",
+          "minority": "9"
+        }
+      },
+      {
+        "subcommittee_code": "IF18",
+        "-subcom-room": "2125",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-2927",
+        "full_subcommittee_name": "Environment",
+        "ratio": {
+          "majority": "13",
+          "minority": "9"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "II00",
+    "room": "1324",
+    "header-text": "The chairman and ranking minority member are non-voting ex officio members of all subcomitteess on which they do not hold a regular  assignment.",
+    "zip": "20515",
+    "zip-suffix": "6201",
+    "building-code": "LHOB",
+    "phone": "225-2761",
+    "full_committee_name": "Committee on Natural Resources",
+    "ratio": {
+      "majority": "25",
+      "minority": "18"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "II06",
+        "-subcom-room": "1522",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-9297",
+        "full_subcommittee_name": "Energy and Mineral Resources",
+        "ratio": {
+          "majority": "13",
+          "minority": "10"
+        }
+      },
+      {
+        "subcommittee_code": "II10",
+        "-subcom-room": "1332",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "226-7736",
+        "full_subcommittee_name": "Federal Lands",
+        "ratio": {
+          "majority": "12",
+          "minority": "9"
+        }
+      },
+      {
+        "subcommittee_code": "II13",
+        "-subcom-room": "4120",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "225-8331",
+        "full_subcommittee_name": "Water, Power and Oceans",
+        "ratio": {
+          "majority": "11",
+          "minority": "8"
+        }
+      },
+      {
+        "subcommittee_code": "II15",
+        "-subcom-room": "4170",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "225-7107",
+        "full_subcommittee_name": "Oversight and Investigations",
+        "ratio": {
+          "majority": "6",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "II24",
+        "-subcom-room": "4450",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "226-9725",
+        "full_subcommittee_name": "Indian, Insular and Alaska Native Affairs",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "JU00",
+    "room": "2138",
+    "zip": "20515",
+    "zip-suffix": "6216",
+    "building-code": "RHOB",
+    "phone": "225-3951",
+    "full_committee_name": "Committee on the Judiciary",
+    "ratio": {
+      "majority": "24",
+      "minority": "17"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "JU01",
+        "-subcom-room": "6320",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "225-3926",
+        "full_subcommittee_name": "Immigration and Border Security",
+        "ratio": {
+          "majority": "8",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "JU03",
+        "-subcom-room": "6310",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "225-5741",
+        "full_subcommittee_name": "Courts, Intellectual Property, and the Internet",
+        "ratio": {
+          "majority": "14",
+          "minority": "12"
+        }
+      },
+      {
+        "subcommittee_code": "JU05",
+        "-subcom-room": "6240",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "226-7680",
+        "full_subcommittee_name": "Regulatory Reform, Commercial and Antitrust Law",
+        "ratio": {
+          "majority": "8",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "JU08",
+        "-subcom-room": "6340",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "225-5727",
+        "full_subcommittee_name": "Crime, Terrorism, Homeland Security, and Investigations",
+        "ratio": {
+          "majority": "10",
+          "minority": "7"
+        }
+      },
+      {
+        "subcommittee_code": "JU10",
+        "-subcom-room": "362",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "225-2825",
+        "full_subcommittee_name": "The Constitution and Civil Justice",
+        "ratio": {
+          "majority": "5",
+          "minority": "3"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "PW00",
+    "room": "2165",
+    "header-text": "The chairman and ranking minority member are ex officio members, with vote, of all subcomitteess.",
+    "zip": "20515",
+    "zip-suffix": "6256",
+    "building-code": "RHOB",
+    "phone": "225-9446",
+    "full_committee_name": "Committee on Transportation and Infrastructure",
+    "ratio": {
+      "majority": "34",
+      "minority": "27"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "PW02",
+        "-subcom-room": "585",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "225-4360",
+        "full_subcommittee_name": "Water Resources and Environment",
+        "ratio": {
+          "majority": "17",
+          "minority": "13"
+        }
+      },
+      {
+        "subcommittee_code": "PW05",
+        "-subcom-room": "2251",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "226-3220",
+        "full_subcommittee_name": "Aviation",
+        "ratio": {
+          "majority": "21",
+          "minority": "16"
+        }
+      },
+      {
+        "subcommittee_code": "PW07",
+        "-subcom-room": "507",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "226-3552",
+        "full_subcommittee_name": "Coast Guard and Maritime Transportation",
+        "ratio": {
+          "majority": "8",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "PW12",
+        "-subcom-room": "2251",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-6715",
+        "full_subcommittee_name": "Highways and Transit",
+        "ratio": {
+          "majority": "27",
+          "minority": "21"
+        }
+      },
+      {
+        "subcommittee_code": "PW13",
+        "-subcom-room": "586",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "FHOB",
+        "-subcom-phone": "225-3014",
+        "full_subcommittee_name": "Economic Development, Public Buildings, and Emergency Management",
+        "ratio": {
+          "majority": "8",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "PW14",
+        "-subcom-room": "2029",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "226-0727",
+        "full_subcommittee_name": "Railroads, Pipelines, and Hazardous Materials",
+        "ratio": {
+          "majority": "18",
+          "minority": "14"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "RU00",
+    "room": "H312",
+    "zip": "20515",
+    "zip-suffix": "6269",
+    "building-code": "C",
+    "phone": "225-9191",
+    "full_committee_name": "Committee on Rules",
+    "ratio": {
+      "majority": "9",
+      "minority": "4"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "RU02",
+        "-subcom-room": "H312",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-9191",
+        "full_subcommittee_name": "Legislative and Budget Process",
+        "ratio": {
+          "majority": "5",
+          "minority": "2"
+        }
+      },
+      {
+        "subcommittee_code": "RU04",
+        "-subcom-room": "H312",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-9191",
+        "full_subcommittee_name": "Rules and Organization of the House",
+        "ratio": {
+          "majority": "5",
+          "minority": "2"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "SM00",
+    "room": "2361",
+    "zip": "20515",
+    "zip-suffix": "6315",
+    "building-code": "RHOB",
+    "phone": "225-5821",
+    "full_committee_name": "Committee on Small Business",
+    "ratio": {
+      "majority": "14",
+      "minority": "10"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "SM23",
+        "-subcom-room": "2361",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5821",
+        "full_subcommittee_name": "Contracting and Workforce",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "SM24",
+        "-subcom-room": "2361",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5821",
+        "full_subcommittee_name": "Investigations, Oversight and Regulations",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "SM25",
+        "-subcom-room": "2361",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5821",
+        "full_subcommittee_name": "Agriculture, Energy and Trade",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "SM26",
+        "-subcom-room": "2361",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5821",
+        "full_subcommittee_name": "Health and Technology",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "SM27",
+        "-subcom-room": "2361",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-5821",
+        "full_subcommittee_name": "Economic Growth, Tax and Capital Access",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "SO00",
+    "room": "1015",
+    "zip": "20515",
+    "zip-suffix": "6328",
+    "building-code": "LHOB",
+    "phone": "225-7103",
+    "full_committee_name": "Committee on Ethics",
+    "ratio": {
+      "majority": "5",
+      "minority": "5"
+    }
+  },
+  {
+    "type": "standing",
+    "committee_id": "SY00",
+    "room": "2321",
+    "header-text": "The chairman and ranking minority member are ex officio members, without vote, of all subcomitteess.",
+    "zip": "20515",
+    "zip-suffix": "6301",
+    "building-code": "RHOB",
+    "phone": "225-6371",
+    "full_committee_name": "Committee on Science, Space, and Technology",
+    "ratio": {
+      "majority": "22",
+      "minority": "17"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "SY15",
+        "-subcom-room": "4220",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "225-6371",
+        "full_subcommittee_name": "Research and Technology",
+        "ratio": {
+          "majority": "9",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "SY16",
+        "-subcom-room": "4220",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "OHOB",
+        "-subcom-phone": "225-6371",
+        "full_subcommittee_name": "Space",
+        "ratio": {
+          "majority": "14",
+          "minority": "10"
+        }
+      },
+      {
+        "subcommittee_code": "SY18",
+        "-subcom-room": "2319",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-6371",
+        "full_subcommittee_name": "Environment",
+        "ratio": {
+          "majority": "10",
+          "minority": "7"
+        }
+      },
+      {
+        "subcommittee_code": "SY20",
+        "-subcom-room": "2319",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-6371",
+        "full_subcommittee_name": "Energy",
+        "ratio": {
+          "majority": "11",
+          "minority": "8"
+        }
+      },
+      {
+        "subcommittee_code": "SY21",
+        "-subcom-room": "2321",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-6371",
+        "full_subcommittee_name": "Oversight",
+        "ratio": {
+          "majority": "7",
+          "minority": "5"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "VR00",
+    "room": "335",
+    "zip": "20515",
+    "zip-suffix": "6335",
+    "building-code": "CHOB",
+    "phone": "225-3527",
+    "full_committee_name": "Committee on Veterans' Affairs",
+    "ratio": {
+      "majority": "14",
+      "minority": "10"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "VR03",
+        "-subcom-room": "337",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "CHOB",
+        "-subcom-phone": "225-9154",
+        "full_subcommittee_name": "Health",
+        "ratio": {
+          "majority": "7",
+          "minority": "5"
+        }
+      },
+      {
+        "subcommittee_code": "VR08",
+        "-subcom-room": "337A",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "CHOB",
+        "-subcom-phone": "225-3569",
+        "full_subcommittee_name": "Oversight and Investigations",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "VR09",
+        "-subcom-room": "338",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "CHOB",
+        "-subcom-phone": "225-9164",
+        "full_subcommittee_name": "Disability Assistance and Memorial Affairs",
+        "ratio": {
+          "majority": "5",
+          "minority": "3"
+        }
+      },
+      {
+        "subcommittee_code": "VR10",
+        "-subcom-room": "335",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "CHOB",
+        "-subcom-phone": "226-5491",
+        "full_subcommittee_name": "Economic Opportunity",
+        "ratio": {
+          "majority": "5",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "VR11",
+        "-subcom-room": "337A",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "CHOB",
+        "-subcom-phone": "225-3569",
+        "full_subcommittee_name": "Technology Modernization",
+        "ratio": {
+          "majority": "3",
+          "minority": "2"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standing",
+    "committee_id": "WM00",
+    "room": "1102",
+    "zip": "20515",
+    "zip-suffix": "6348",
+    "building-code": "LHOB",
+    "phone": "225-3625",
+    "full_committee_name": "Committee on Ways and Means",
+    "ratio": {
+      "majority": "24",
+      "minority": "16"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "WM01",
+        "-subcom-room": "2018",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-9263",
+        "full_subcommittee_name": "Social Security",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "WM02",
+        "-subcom-room": "1104",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-3943",
+        "full_subcommittee_name": "Health",
+        "ratio": {
+          "majority": "11",
+          "minority": "7"
+        }
+      },
+      {
+        "subcommittee_code": "WM03",
+        "-subcom-room": "1129",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-1025",
+        "full_subcommittee_name": "Human Resources",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "WM04",
+        "-subcom-room": "1103",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-6649",
+        "full_subcommittee_name": "Trade",
+        "ratio": {
+          "majority": "10",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "WM05",
+        "-subcom-room": "1136",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "LHOB",
+        "-subcom-phone": "225-5522",
+        "full_subcommittee_name": "Tax Policy",
+        "ratio": {
+          "majority": "9",
+          "minority": "6"
+        }
+      },
+      {
+        "subcommittee_code": "WM06",
+        "-subcom-room": "2018",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "0",
+        "-subcom-building-code": "RHOB",
+        "-subcom-phone": "225-9263",
+        "full_subcommittee_name": "Oversight",
+        "ratio": {
+          "majority": "7",
+          "minority": "4"
+        }
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "committee_id": "IG00",
+    "room": "HVC304",
+    "zip": "20515",
+    "zip-suffix": "6415",
+    "building-code": "C",
+    "phone": "225-4121",
+    "full_committee_name": "Permanent Select Committee on Intelligence",
+    "ratio": {
+      "majority": "13",
+      "minority": "9"
+    },
+    "subcomittees": [
+      {
+        "subcommittee_code": "IG01",
+        "-subcom-room": "HVC304",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "6415",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-4121",
+        "full_subcommittee_name": "Central Intelligence Agency",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "IG02",
+        "-subcom-room": "HVC304",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "6415",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-4121",
+        "full_subcommittee_name": "National Security Agency and Cybersecurity",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "IG03",
+        "-subcom-room": "HVC304",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "6415",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-4121",
+        "full_subcommittee_name": "Emerging Threats",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      },
+      {
+        "subcommittee_code": "IG04",
+        "-subcom-room": "HVC304",
+        "-subcom-zip": "20515",
+        "-subcom-zip-suffix": "6415",
+        "-subcom-building-code": "C",
+        "-subcom-phone": "225-4121",
+        "full_subcommittee_name": "Department of Defense Intelligence and Overhead Architecture",
+        "ratio": {
+          "majority": "6",
+          "minority": "4"
+        }
+      }
+    ]
+  },
+  {
+    "type": "joint",
+    "committee_id": "EC00",
+    "room": "SD-G01",
+    "zip": "20510",
+    "zip-suffix": "6432",
+    "building-code": "DSOB",
+    "phone": "224-5171",
+    "full_committee_name": "Joint Economic Committee",
+    "ratio": {
+      "majority": "0",
+      "minority": "0"
+    }
+  },
+  {
+    "type": "joint",
+    "committee_id": "IT00",
+    "room": "502",
+    "zip": "20515",
+    "zip-suffix": "6453",
+    "building-code": "FHOB",
+    "phone": "225-3621",
+    "full_committee_name": "Joint Committee on Taxation",
+    "ratio": {
+      "majority": "0",
+      "minority": "0"
+    }
+  },
+  {
+    "type": "joint",
+    "committee_id": "JB00",
+    "room": "B234",
+    "zip": "20515",
+    "zip-suffix": "0",
+    "building-code": "LHOB",
+    "phone": "226-7270",
+    "full_committee_name": "Joint Select Committee on Budget and Appropriations Process Reform",
+    "ratio": {
+      "majority": "0",
+      "minority": "0"
+    }
+  },
+  {
+    "type": "joint",
+    "committee_id": "JL00",
+    "room": "1309",
+    "zip": "20515",
+    "zip-suffix": "6157",
+    "building-code": "LHOB",
+    "phone": "225-8281",
+    "full_committee_name": "Joint Committee on the Library",
+    "ratio": {
+      "majority": "0",
+      "minority": "0"
+    }
+  },
+  {
+    "type": "joint",
+    "committee_id": "JP00",
+    "room": "SR-305",
+    "zip": "20515",
+    "zip-suffix": "6446",
+    "building-code": "RSOB",
+    "phone": "224-6352",
+    "full_committee_name": "Joint Committee on Printing",
+    "ratio": {
+      "majority": "6",
+      "minority": "4"
+    }
+  },
+  {
+    "type": "joint",
+    "committee_id": "JS00",
+    "room": "SD-219",
+    "zip": "20510",
+    "zip-suffix": "0",
+    "building-code": "DSOB",
+    "phone": "224-4515",
+    "full_committee_name": "Joint Select Committee on Solvency of Multiemployer Pension Plans",
+    "ratio": {
+      "majority": "0",
+      "minority": "0"
+    }
+  }
+]
