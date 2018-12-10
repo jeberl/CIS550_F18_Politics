@@ -17,79 +17,84 @@
     </head>
     <body data-spy="scroll" data-target=".scrollspy">
         <header></header>
-          <div class="container">
-        
+        <div class="container">
             <div class="jumbotron">
-                <div ng-controller="closestCommitteeController">
-                    <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Who is in the closest committee race?  If no specific subcomittee, leave blank:
+                <div ng-controller="CommitteeController">
+                    <p>
+                    Select a Committee
                     </p>
-            Committee Code: <input type="text" name="comcode" ng-model="comcode" value=""/></br>
-            Subcomittee Code: <input type="text" name="subcomcode" ng-model="subcomcode" value=""/></br>
-            <button type="button" ng-click="GetClosestRace()" class="button">Show Closest Committee Race</button></br>
+                     <select name="committeeDrop" ng-model="committeeDrop" ng-options="x.committee_id for x in committees" ngchange="populateSubDrop()">
+                     </select>
+                     <p>
+                    Select a SubCommittee
+                    </p>
+                     <select name="subDrop" ng-model="subDrop" ng-options="x.sub_id for x in subs">
+                     </select>
+                     <button type="button" ng-click="Inform()" class="button">Inform Me</button>
 
-                    <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-                        <tr> 
-                        <td> First Name </td>
-                        <td> Last Name </td>
-                        <td> Win Probability </td>
-                        <tr ng-repeat="x in Cdata"> 
-                        <td> {{x.firstname}} </td>
-                        <td> {{x.lastname}} </td>
-                        <td> {{x.winProbability}} </td>
-                        </tr>
-                    </table>
+                    <div class="container">
+                        <div class="jumbotron">
+                            <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-sort"></span> Who is in the closest race?
+                            </p>
+
+                            <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                                <tr> 
+                                <td> First Name </td>
+                                <td> Last Name </td>
+                                <td> Win Probability </td>
+                                <tr ng-repeat="x in Cdata"> 
+                                <td> {{x.firstname}} </td>
+                                <td> {{x.lastname}} </td>
+                                <td> {{x.winProbability}} </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="jumbotron">
+                            <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-user"></span> Who is least likely to be reelected?  
+                            </p>
+        
+                            <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                                <tr> 
+                                <td> First Name </td>
+                                <td> Last Name </td>
+                                <td> State </td>
+                                <td> District </td>
+                                <tr ng-repeat="x in Ldata"> 
+                                <td> {{x.firstname}} </td>
+                                <td> {{x.lastname}} </td>
+                                <td> {{x.state}} </td>
+                                <td> {{x.district}} </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <div class="container">
+                        <div class="jumbotron">
+                            <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-earphone"></span>
+                            Contact Committee Members
+                            <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                                <tr> 
+                                <td> First Name </td>
+                                <td> Last Name </td>
+                                <td> State </td>
+                                <td> District </td>
+                                <tr ng-repeat="x in Adata"> 
+                                <td> {{x.firstname}} </td>
+                                <td> {{x.lastname}} </td>
+                                <td> {{x.state}} </td>
+                                <td> {{x.district}} </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-           
-            <div class="jumbotron">
-         <div ng-controller="leastLikelyCommitteeController">
-        <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Who is least likely to be reelected to a given committee?  If no specific subcomittee, leave blank:
-        </p>
-            Committee Code: <input type="text" name="comcode" ng-model="comcode" value=""/></br>
-            Subcomittee Code: <input type="text" name="subcomcode" ng-model="subcomcode" value=""/></br>
-            <button type="button" ng-click="GetLeastLikely()" class="button">Show Least Likely Person</button></br>
-        
-        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-            <tr> 
-            <td> First Name </td>
-            <td> Last Name </td>
-            <td> State </td>
-            <td> District </td>
-            <tr ng-repeat="x in Ldata"> 
-            <td> {{x.firstname}} </td>
-            <td> {{x.lastname}} </td>
-            <td> {{x.state}} </td>
-            <td> {{x.district}} </td>
-            </tr>
-        </table>
-        </div>
-        </div>
-        </div>
-
-        <div class="container">
-        <div class="jumbotron">
-            <div ng-controller="allMembersOnCommitteeController">
-                <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Enter committee information to see all members on committee.  If no specific subcomittee, leave blank:
-                </p>
-            Committee Code: <input type="text" name="comcode" ng-model="comcode" value=""/></br>
-            Subcomittee Code: <input type="text" name="subcomcode" ng-model="subcomcode" value=""/></br>
-            <button type="button" ng-click="GetAllMembers()" class="button">Show All Members</button></br>
-      
-        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
-            <tr> 
-            <td> First Name </td>
-            <td> Last Name </td>
-            <td> State </td>
-            <td> District </td>
-            <tr ng-repeat="x in Adata"> 
-            <td> {{x.firstname}} </td>
-            <td> {{x.lastname}} </td>
-            <td> {{x.state}} </td>
-            <td> {{x.district}} </td>
-            </tr>
-        </table>
-          </div>
     </body>
 </html>
