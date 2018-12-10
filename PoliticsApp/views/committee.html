@@ -1,0 +1,100 @@
+<!-- <h2> Select Committee </h2>
+<select (change)="selectCommittee($event.target.value)"> 
+	<option *ngFor="let c of committees" value={{c}}> {{c}} </option>
+</select>
+<h2> Select SubCommittee </h2>
+<select (change)="getMembers($event.target.value)"> 
+	<option *ngFor="let s of subs" value={{s}}> {{s}} </option>
+</select> -->
+<!DOCTYPE html>
+<html ng-app="angularjsNodejsTutorial">
+    <head>
+        <title>Please enter committee information</title>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+        <script src="javascripts/app.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    </head>
+    <body data-spy="scroll" data-target=".scrollspy">
+        <header></header>
+        <!-- Static navbar-->
+        <nav role="navigation" class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">Welcome to Politics!</a></div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/run">Who's Running</a></li>
+                    <li><a href="/tight">Tight Race Watch</a></li>
+                    <li><a href="/candidate">Contact Your Reps</a></li>
+                    <li class="active"><a href="/committee">Committee Races</a></li>
+                </div>
+            </div>
+        </nav>
+         <div class="container">
+            <!-- Main component for a primary marketing message or call to action-->
+            <div class="jumbotron">
+         <div ng-controller="closestCommitteeController">
+        <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Who is in the closest committee race?  If no specific subcomittee, leave blank:
+        </p>
+            Committee Code: <input type="text" name="comcode" ng-model="comcode" value=""/></br>
+            Subcomittee Code: <input type="text" name="subcomcode" ng-model="subcomcode" value=""/></br>
+            <button type="button" ng-click="GetClosestRace()" class="button">Show Closest Committee Race</button></br>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> First Name </td>
+            <td> Last Name </td>
+            <td> Win Probability </td>
+            <tr ng-repeat="x in data"> 
+            <td> {{x.firstname}} </td>
+            <td> {{x.lastname}} </td>
+            <td> {{x.winProbability}} </td>
+            </tr>
+        </table>
+        </div>
+        <div class="container">
+            <!-- Main component for a primary marketing message or call to action-->
+            <div class="jumbotron">
+         <div ng-controller="leastLikelyCommitteeController">
+        <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Who is least likely to be reelected to a given committee?  If no specific subcomittee, leave blank:
+        </p>
+            Committee Code: <input type="text" name="comcode" ng-model="comcode" value=""/></br>
+            Subcomittee Code: <input type="text" name="subcomcode" ng-model="subcomcode" value=""/></br>
+            <button type="button" ng-click="GetLeastLikely()" class="button">Show Least Likely Person</button></br>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> First Name </td>
+            <td> Last Name </td>
+            <td> State </td>
+            <td> District </td>
+            <tr ng-repeat="x in data"> 
+            <td> {{x.firstname}} </td>
+            <td> {{x.lastname}} </td>
+            <td> {{x.state}} </td>
+            <td> {{x.district}} </td>
+            </tr>
+        </table>
+        </div>
+        <div class="container">
+            <!-- Main component for a primary marketing message or call to action-->
+            <div class="jumbotron">
+         <div ng-controller="allMembersOnCommitteeController">
+        <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Enter committee information to see all members on committee.  If no specific subcomittee, leave blank:
+        </p>
+            Committee Code: <input type="text" name="comcode" ng-model="comcode" value=""/></br>
+            Subcomittee Code: <input type="text" name="subcomcode" ng-model="subcomcode" value=""/></br>
+            <button type="button" ng-click="GetAllMembers()" class="button">Show All Members</button></br>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> First Name </td>
+            <td> Last Name </td>
+            <td> State </td>
+            <td> District </td>
+            <tr ng-repeat="x in data"> 
+            <td> {{x.firstname}} </td>
+            <td> {{x.lastname}} </td>
+            <td> {{x.state}} </td>
+            <td> {{x.district}} </td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>
