@@ -1,5 +1,30 @@
 var app = angular.module('angularjsNodejsTutorial',[]);
 
+// Controller for the Committee Page
+app.controller('CommitteeController', function($scope, $http) {
+    $scope.message="";
+
+    var request = $http.get('/committeeDropDown');
+    request.success(function(data) {
+        $scope.committeeDropDown = data;
+        console.log($scope.committeeDropDown);
+    });
+    request.error(function(data){
+        console.log('err');
+    });
+
+    $scope.populateSubDrop = function() {
+        var request = $http.post('/SubCommitteeData/'+$scope.committeeDrop.committee_id);
+        request.success(function(data) {
+            $scope.subcommitteeDropDown = data;
+            console.log($scope.subcommitteeDropDown);
+        });
+        request.error(function(data){
+            console.log('err');
+        });
+    };
+});
+
 // Controller for "Closest Committee Race" on Committee Page
 app.controller('closestCommitteeController', function($scope, $http) {
     $scope.message="";

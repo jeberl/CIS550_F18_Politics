@@ -23,12 +23,12 @@
                     <p>
                     Select a Committee
                     </p>
-                     <select name="committeeDrop" ng-model="committeeDrop" ng-options="x.committee_id for x in committees" ngchange="populateSubDrop()">
+                     <select name="committeeDrop" ng-model="committeeDrop" ng-options="x.committee_id for x in committeeDropDown" ng-change="populateSubDrop()">
                      </select>
                      <p>
                     Select a SubCommittee
                     </p>
-                     <select name="subDrop" ng-model="subDrop" ng-options="x.sub_id for x in subs">
+                     <select name="subDrop" ng-model="subDrop" ng-options="x.subcommittee for x in subcommitteeDropDown">
                      </select>
                      <button type="button" ng-click="Inform()" class="button">Inform Me</button>
 

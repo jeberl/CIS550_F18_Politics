@@ -53,6 +53,30 @@ router.get('/3.png', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'assets', '3.png'));
 })
 
+// Route handler for getting all committees
+router.get('/committeeDropDown', function(req, res) {
+  var query = 'SELECT DISTINCT committee_id FROM CommitteeAssignment ORDER BY committee_id ASC';
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+      else {
+        res.json(rows);
+      };
+    });
+});
+
+// Route hanlder for getting all subcommittees for a specific committee
+router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
+  console.log(req.params.committeeDrop);
+  var query = 'SELECT DISTINCT subcommittee FROM CommitteeAssignment WHERE committee_id = \''
+              +req.params.committeeDrop+'\' ORDER BY subcommittee ASC';
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+      else {
+        console.log('Executed Query!');
+        res.json(rows);
+      };
+    });
+});
 
 // Route handler for member of committee in closest race
 router.post('/closestCommitteeData/:comcode/:subcomcode', function(req, res) {
