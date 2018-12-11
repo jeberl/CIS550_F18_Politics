@@ -16,12 +16,12 @@
                     <p>
                     Select a State
                     </p>
-                     <select name="stateDrop" ng-model="stateDrop" ng-options="x.committee_id for x in stateDropDown" ng-change="getStates()">
+                     <select name="stateDrop" ng-model="stateDrop" ng-options="x.state for x in stateDropDown" ng-change="PopulateDistrictDrop()">
                      </select>
                      <p>
                     Select a District
                     </p>
-                     <select name="districtDrop" ng-model="districtDrop" ng-options="x.subcommittee for x in districtDrop">
+                     <select name="districtDrop" ng-model="districtDrop" ng-options="x.district for x in districtDropDown">
                      </select>
                     <button type="button" ng-click="Running()" class="button">Show Candidates!</button></br>
         

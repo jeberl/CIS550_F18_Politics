@@ -61,8 +61,28 @@ app.controller('CommitteeController', function($scope, $http) {
 
 // Controller for "Who's Running?" page
 app.controller('runningController', function($scope, $http) {
+    var request = $http.get('/stateDropDown');
+    request.success(function(data) {
+        $scope.stateDropDown = data;
+        console.log($scope.stateDropDown);
+    });
+    request.error(function(data){
+        console.log('err');
+    });
+
+    $scope.PopulateDistrictDrop = function() {
+        var request = $http.post('/districtData/'+$scope.stateDrop.state);
+        request.success(function(data) {
+            $scope.districtDropDown = data;
+            console.log(typeof $scope.districtDropDown);
+        });
+        request.error(function(data){
+            console.log('err');
+        });
+    };
+
     $scope.Running = function() {
-        var request = $http.get('/runningData/'+$scope.state+'/'+$scope.district);
+        var request = $http.get('/runningData/'+$scope.stateDrop.state+'/'+$scope.districtDrop.district);
         request.success(function(data) {
             $scope.rundata = data;
             console.log($scope.rundata);

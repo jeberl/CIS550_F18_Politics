@@ -150,6 +150,31 @@ router.post('/allMemberOnComData/:comcode/:subcomcode', function(req, res) {
     );
 });
 
+// Route handler for getting all states
+router.get('/stateDropDown', function(req, res) {
+  var query = 'SELECT DISTINCT state FROM Member ORDER BY state ASC';
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+      else {
+        res.json(rows);
+      };
+    });
+});
+
+// Route hanlder for getting all disticts for a specific state
+router.post('/districtData/:stateDrop', function(req, res) {
+  console.log(req.params.stateDrop);
+  var query = 'SELECT DISTINCT district FROM Member WHERE state = \''
+              +req.params.stateDrop+'\' ORDER BY state ASC';
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+      else {
+        console.log('Executed Query!');
+        res.json(rows);
+      };
+    });
+});
+
 // Route handler for "Who's Running"
 router.get('/runningData/:state/:district', function(req,res) {
   // TODO add drop down for Poll type - currently, just PollLite
