@@ -42,6 +42,11 @@ router.get('/committee', function(req, res, next) {
 	res.sendFile(path.join(__dirname, '../', 'views', 'committee.html'));
 })
 
+// Add new page for getting num reps by state
+router.get('/numreps', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'numreps.html'));
+})
+
 // Add some assets
 router.get('/1.png', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'assets', '1.png'));
@@ -206,6 +211,18 @@ router.get('/tightData/:threshold/:pollModel', function(req,res) {
               ' p1 JOIN '+pollModel+' p2 ON p1.state = p2.state AND p1.district = p2.district '+
               'WHERE abs(p1.win_probability - p2.win_probability) <= '+threshold+
               ' and p1.win_probability >= '+threshold+' and p1.candidate_last > p2.candidate_last';
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      console.log("Success running query!");
+        res.json(rows);
+    }  
+    });
+});
+
+// Route handler for "Number of Reps per state"
+router.get('/repData', function(req,res) {
+  var query = 'SELECT state, COUNT(*) AS numReps FROM Member GROUP BY state ASC';
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {

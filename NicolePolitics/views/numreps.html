@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="angularjsNodejsTutorial">
+    <head>
+        <div ng-include src="'/navbar'"> </div>
+        <title>Please enter committee information</title>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+        <script src="javascripts/app.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    </head>
+        <body data-spy="scroll" data-target=".scrollspy">
+         <header></header>
+         <div class="container">
+         	<div class="jumbotron">
+         		<div ng-controller="repsController">
+         			<h2> 
+         			Number of Representatives per State
+         			</h2>
+         			<table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                            <tr> 
+                            <td> State </td>
+                            <td> Number of Representatives </td>
+                        
+                            <tr ng-repeat="x in repData"> 
+                            <td> {{x.state}} </td>
+                            <td> {{x.numReps}} </td>
+                            </tr>
+                        </table>
+         		</div>
+         	</div>
+         </div>
+         </body>
+         </html>

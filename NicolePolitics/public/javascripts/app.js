@@ -113,3 +113,17 @@ app.controller('tightController', function($scope, $http) {
     };
 });
 
+// Controller for "Num Reps" page
+app.controller('repsController', function($scope, $http) {
+    $scope.message="";
+
+    var request = $http.get('/repData');
+    request.success(function(data) {
+        $scope.repData = data;
+        console.log($scope.repData);
+    });
+    request.error(function(data){
+        console.log('err');
+    });
+});
+
