@@ -79,25 +79,27 @@ router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
 });
 
 // Route handler for member of committee in closest race
-router.post('/closestCommitteeData/:comcode/:subcomcode', function(req, res) {
-	// TODO remove dependency on PollLite
+router.post('/closestCommitteeData/:comcode/:subcomcode/:pollModel', function(req, res) {
 	var comcode = req.params.comcode;
 	var subcomcode = req.params.subcomcode;
-  if (typeof subcomcode === 'undefined') {
+  var pollModel = req.params.pollModel;
+  console.log("pollModel = " + pollModel);
+  if (subcomcode === 'undefined') {
+    console.log("sub is 0");
     subcomcode = '00';
   }
 	var query = 'SELECT DISTINCT m.firstname, m.lastname, p.win_probability as winProbability FROM'+
-              '(SELECT * FROM CommitteeAssignment WHERE committee_id = \''+comcode+'\') '+
-              'ca JOIN Member m ON ca.state = m.state AND ca.district = m.district JOIN '+
-              'PollLite p ON m.state = p.state AND m.district = p.district WHERE '+
+              '(SELECT * FROM CommitteeAssignment WHERE committee_id = \''+comcode+'\' AND subcommittee = \''+subcomcode+'\') '+
+              'ca JOIN Member m ON ca.state = m.state AND ca.district = m.district JOIN '+pollModel+
+              ' p ON m.state = p.state AND m.district = p.district WHERE '+
               'p.is_incumbent = 1 AND p.win_probability + 50 = '+
               '(SELECT MIN(ABS(p.win_probability - 50)) FROM (SELECT * FROM '+
-              'CommitteeAssignment WHERE committee_id = \''+comcode+'\') ca JOIN Member m '+
-              'ON ca.state = m.state AND ca.district = m.district JOIN PollLite p ON '+
+              'CommitteeAssignment WHERE committee_id = \''+comcode+'\' AND subcommittee = \''+subcomcode+'\') ca JOIN Member m '+
+              'ON ca.state = m.state AND ca.district = m.district JOIN '+pollModel+' p ON '+
               'm.state = p.state AND m.district = p.district) OR p.win_probability - 50 = '+
               '(SELECT MIN(ABS(p.win_probability - 50)) FROM (SELECT * FROM CommitteeAssignment '+
-              'WHERE committee_id = \''+comcode+'\') ca JOIN Member m ON ca.state = m.state AND '+
-              'ca.district = m.district JOIN PollLite p ON m.state = p.state AND '+
+              'WHERE committee_id = \''+comcode+'\' AND subcommittee = \''+subcomcode+'\') ca JOIN Member m ON ca.state = m.state AND '+
+              'ca.district = m.district JOIN '+pollModel+' p ON m.state = p.state AND '+
               'm.district = p.district)';
 	connection.query(query, function(err, rows, fields) {
     if (err) console.log(err)
@@ -108,22 +110,23 @@ router.post('/closestCommitteeData/:comcode/:subcomcode', function(req, res) {
 });
 
 // Route handler for member of committee least likely to win re-election
-router.post('/leastLikelyData/:comcode/:subcomcode', function(req, res) {
-  // TODO remove dependency on PollLite
+router.post('/leastLikelyData/:comcode/:subcomcode/:pollModel', function(req, res) {
   var comcode = req.params.comcode;
   var subcomcode = req.params.subcomcode;
-  if (typeof subcomcode === 'undefined') {
+  var pollModel = req.params.pollModel;
+  if (subcomcode === 'undefined') {
+    console.log("sub is 0");
     subcomcode = '00';
   }
   console.log("least likely --> comcode = " + comcode);
   var query = 'SELECT DISTINCT m.firstname, m.lastname, p.state, p.district '+
               'FROM (SELECT * FROM CommitteeAssignment WHERE committee_id = \''
-              +comcode+'\') ca JOIN Member m ON ca.state = m.state AND ca.district'+
-              ' = m.district JOIN PollLite p ON m.state = p.state AND m.district = '+
+              +comcode+'\' AND subcommittee = \''+subcomcode+'\') ca JOIN Member m ON ca.state = m.state AND ca.district'+
+              ' = m.district JOIN '+pollModel+' p ON m.state = p.state AND m.district = '+
               'p.district WHERE p.win_probability = (SELECT MIN(p.win_probability) '+
               'FROM (SELECT * FROM CommitteeAssignment WHERE committee_id = \''
-              +comcode+'\') ca JOIN Member m ON ca.state = m.state AND ca.district ='+
-              ' m.district JOIN PollLite p ON m.state = p.state AND m.district = '+
+              +comcode+'\' AND subcommittee = \''+subcomcode+'\') ca JOIN Member m ON ca.state = m.state AND ca.district ='+
+              ' m.district JOIN '+pollModel+' p ON m.state = p.state AND m.district = '+
               'p.district WHERE p.is_incumbent = 1)';
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err); else {
@@ -135,13 +138,13 @@ router.post('/leastLikelyData/:comcode/:subcomcode', function(req, res) {
 router.post('/allMemberOnComData/:comcode/:subcomcode', function(req, res) {
   var comcode = req.params.comcode;
   var subcomcode = req.params.subcomcode;
-  if (typeof subcomcode === 'undefined') {
+  if (subcomcode === 'undefined') {
     subcomcode = '00';
-  console.log("all members on committee --> comcode = " + comcode);
+    console.log("sub is 0");
   }
   var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state, m.district, m.phone '+
               'FROM Member m JOIN CommitteeAssignment ca ON m.district = ca.district '+
-              'AND m.state = ca.state WHERE ca.committee_id = \''+comcode+'\'';
+              'AND m.state = ca.state WHERE ca.committee_id = \''+comcode+'\' AND subcommittee = \''+subcomcode+'\'';
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
      else {
@@ -177,10 +180,8 @@ router.post('/districtData/:stateDrop', function(req, res) {
 
 // Route handler for "Who's Running"
 router.get('/runningData/:state/:district', function(req,res) {
-  // TODO add drop down for Poll type - currently, just PollLite
   console.log("state = " + req.params.state);
   console.log("district = " + req.params.district);
-  // Uncomment below when establish Oracle connection
   var query = 'SELECT candidate_first as firstname, candidate_last as lastname, party, ' + 
               'win_probability as winProbability, is_incumbent as isIncumbent FROM ' +
               'PollLite WHERE state = \''+req.params.state+'\'AND district = \''
@@ -193,6 +194,27 @@ router.get('/runningData/:state/:district', function(req,res) {
     }  
     });
 });
+
+// Route handler for "Tight Race"
+router.get('/tightData/:threshold/:pollModel', function(req,res) {
+  var threshold =  req.params.threshold;
+  var pollModel = req.params.pollModel;
+  var query = 'SELECT DISTINCT p1.state, p1.district, p1.candidate_first as '+
+              'leadFirstname, p1.candidate_last as leadLastname, p1.win_probability as '+
+              'leadWinProbability, p2.candidate_first as behindFirstname, p2.candidate_last '+
+              'as behindLastname, p2.win_probability as behindWinProbability FROM '+pollModel+
+              ' p1 JOIN '+pollModel+' p2 ON p1.state = p2.state AND p1.district = p2.district '+
+              'WHERE abs(p1.win_probability - p2.win_probability) <= '+threshold+
+              ' and p1.win_probability >= '+threshold+' and p1.candidate_last > p2.candidate_last';
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      console.log("Success running query!");
+        res.json(rows);
+    }  
+    });
+});
+
 
 
 module.exports = router;

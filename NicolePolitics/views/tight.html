@@ -15,7 +15,7 @@
                             <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a race threshold:
                             <input name="threshold" ng-model="threshold" value="">
                              <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please select a polling model:
-                            <select name="pollModel" ng-model="pollModel">
+                            <select name="pollModel" ng-model="pollModel" id="pollModelDropDown">
                                  <option value='PollLite'>PollLite</option>
                                  <option value='PollClassic'>PollClassic</option>
                                  <option value='PollDeluxe'>PollDeluxe</option>
@@ -32,7 +32,7 @@
                             <td> Behind First Name </td>
                             <td> Behind Last Name </td>
                             <td> Behind Win Probability </td>
-                            <tr ng-repeat="x in data"> 
+                            <tr ng-repeat="x in tightdata"> 
                             <td> {{x.state}} </td>
                             <td> {{x.district}} </td>
                             <td> {{x.leadFirstname}} </td>
