@@ -139,7 +139,7 @@ router.post('/allMemberOnComData/:comcode/:subcomcode', function(req, res) {
     subcomcode = '00';
   console.log("all members on committee --> comcode = " + comcode);
   }
-  var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state, m.district '+
+  var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state, m.district, m.phone '+
               'FROM Member m JOIN CommitteeAssignment ca ON m.district = ca.district '+
               'AND m.state = ca.state WHERE ca.committee_id = \''+comcode+'\'';
   connection.query(query, function(err, rows, fields) {
