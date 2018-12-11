@@ -2,4 +2,4 @@
 
 ## Running Application
 
-Run npm install -g @angular/cli to set up the angular command line interface. Then run ng serve --open from within the src folder to launch the application.
+Run node app from within the NicolePolitics folder to launch app
