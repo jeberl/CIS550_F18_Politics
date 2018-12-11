@@ -25,7 +25,8 @@ app.controller('CommitteeController', function($scope, $http) {
     };
 
     $scope.GetClosestRace = function() {
-        var request = $http.post('/closestCommitteeData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee);
+        var pollModel = document.getElementById('pollModelDropDown').value;
+        var request = $http.post('/closestCommitteeData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee+"/"+pollModel);
         request.success(function(data) {
             $scope.Cdata = data;
             console.log($scope.Cdata);
@@ -36,7 +37,8 @@ app.controller('CommitteeController', function($scope, $http) {
     };
 
     $scope.GetLeastLikely = function() {
-        var request = $http.post('/leastLikelyData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee);
+        var pollModel = document.getElementById('pollModelDropDown').value;
+        var request = $http.post('/leastLikelyData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee+"/"+pollModel);
         request.success(function(data) {
             $scope.Ldata = data;
             console.log($scope.Ldata);
@@ -92,5 +94,36 @@ app.controller('runningController', function($scope, $http) {
         });
     
     };
+});
+
+// Controller for "Tight Race" page
+app.controller('tightController', function($scope, $http) {
+
+    $scope.GetTight = function() {
+        var pollModel = document.getElementById('pollModelDropDown').value;
+        var request = $http.get('/tightData/'+$scope.threshold+'/'+pollModel);
+        request.success(function(data) {
+            $scope.tightdata = data;
+            console.log($scope.tightdata);
+        });
+        request.error(function(data){
+            console.log('err');
+        });
+    
+    };
+});
+
+// Controller for "Num Reps" page
+app.controller('repsController', function($scope, $http) {
+    $scope.message="";
+
+    var request = $http.get('/repData');
+    request.success(function(data) {
+        $scope.repData = data;
+        console.log($scope.repData);
+    });
+    request.error(function(data){
+        console.log('err');
+    });
 });
 
