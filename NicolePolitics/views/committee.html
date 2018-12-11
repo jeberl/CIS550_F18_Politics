@@ -16,12 +16,12 @@
                     <p>
                     Select a Committee
                     </p>
-                     <select name="committeeDrop" ng-model="committeeDrop" ng-options="x.committee_id for x in committeeDropDown" ng-change="populateSubDrop()">
+                     <select name="committeeDrop" ng-model="committeeDrop" ng-options="x.full_committee_name for x in committeeDropDown" ng-change="populateSubDrop()">
                      </select>
                      <p>
                     Select a SubCommittee
                     </p>
-                     <select name="subcommitteeDrop" ng-model="subcommitteeDrop" ng-options="x.subcommittee for x in subcommitteeDropDown">
+                     <select name="subcommitteeDrop" ng-model="subcommitteeDrop" ng-options="x.full_subcommittee_name for x in subcommitteeDropDown">
                      </select>
                          <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please select a polling model:
                             <select name="pollModel" ng-model="pollModel">

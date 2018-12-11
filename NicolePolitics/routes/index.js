@@ -2,9 +2,14 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-// Connect string to mysql - UNCOMMENT ABOVE TO CONNECT TO ORACLE
+// const back = require('../public/javascripts/backend');
+// const Backend = new back.Backend();
+
 var mysql = require('mysql');
-var mysql_connection = mysql.createConnection({
+var AWS = require('aws-sdk');
+
+//MySQL Set Up
+const mysql_connection = mysql.createConnection({
   host     : 'cis550project.cf6ohcdz76sh.us-east-2.rds.amazonaws.com',
   user     : 'cis550project',
   password : 'cis550project',
@@ -13,15 +18,15 @@ var mysql_connection = mysql.createConnection({
 
 mysql_connection.connect(function(err) {
   if (err) {
-    console.log("Could not connect to MySQL.\n Aborting.")
-    //throw err;
+    console.log("Could not connect to MySQL. \nAborting...")
+    throw err;
   }
   console.log("Connected!");
 });
 
-
-var AWS = require('aws-sdk');
-var dynamo = new AWS.DynamoDB({region: "us-west-2"});
+//DynamoDB Set Up
+const dynamo = new AWS.DynamoDB({region: "us-west-2"});
+const dynamo_table = "Committees2";
 
 
 /* GET home page. */
@@ -44,7 +49,6 @@ router.get('/tight', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'tight.html'));
 });
 
-
 // Add new page for getting information on committees
 router.get('/committee', function(req, res, next) {
 	res.sendFile(path.join(__dirname, '../', 'views', 'committee.html'));
@@ -63,10 +67,9 @@ router.get('/3.png', function(req, res, next) {
 
 // Route handler for getting all committees
 router.get('/committeeDropDown', function(req, res) {
-  var table = "Committees2";
 
-  var params = {
-      TableName: table,
+  const params = {
+      TableName: dynamo_table,
       AttributesToGet: ['committee_id', 'full_committee_name']
   };
 
@@ -85,7 +88,6 @@ router.get('/committeeDropDown', function(req, res) {
       const new_data = data.Items.map(function(x) {
         return {"committee_id": x.committee_id.S, "full_committee_name": x.full_committee_name.M.S.S};
       });
-      console.log("Mapped to: " + "\n" + JSON.stringify(new_data, undefined, 2));
       res.json(new_data)
     }
   });
@@ -94,16 +96,44 @@ router.get('/committeeDropDown', function(req, res) {
 
 // Route hanlder for getting all subcommittees for a specific committee
 router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
-  console.log(req.params.committeeDrop);
-  var query = 'SELECT DISTINCT subcommittee FROM CommitteeAssignment WHERE committee_id = \''
-              +req.params.committeeDrop+'\' ORDER BY subcommittee ASC';
-  mysql_connection.query(query, function(err, rows, fields) {
-    if (err) console.log(err);
-      else {
-        console.log('Executed Query!');
-        res.json(rows);
-      };
-    });
+  const cid = req.params.committeeDrop
+
+  const params = {
+      TableName: dynamo_table,
+      Key:{
+        "committee_id": {
+          S: cid
+        }
+      },
+      ProjectionExpression: "subcomittees"
+  };
+  
+  dynamo.getItem(params, function(err, data) {
+    if (err) {
+      console.log("err: " + "\n" + JSON.stringify(err, undefined, 2));
+      console.log("Unable to connect to Dynamo. Attempting to get committees using MySQL");
+      var query = 'SELECT DISTINCT subcommittee FROM CommitteeAssignment WHERE committee_id = \''
+              +cid.substring(0,2)+'\' ORDER BY subcommittee ASC';
+      mysql_connection.query(query, function(err, rows, fields) {
+        if (err) console.log(err);
+        else {
+          console.log(rows);
+          res.json(rows);
+        };
+      });
+    } else {
+      const sub_coms = data.Item.subcomittees.M.L.L;
+      var new_data = sub_coms.map(function(x) {
+        return {"subcommittee_id": x.M.subcommittee_code.M.S.S, "full_subcommittee_name": x.M.full_subcommittee_name.M.S.S};
+      });
+
+      if (new_data[0] == undefined) {
+        new_data = [{"full_subcommittee_name": "No Subcomittees"}];
+      }
+      console.log("data: " + "\n" + JSON.stringify(new_data, undefined, 2));
+      res.json(new_data);
+    }
+  });
 });
 
 // Route handler for member of committee in closest race
