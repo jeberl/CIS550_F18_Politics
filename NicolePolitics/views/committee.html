@@ -23,6 +23,12 @@
                     </p>
                      <select name="subcommitteeDrop" ng-model="subcommitteeDrop" ng-options="x.subcommittee for x in subcommitteeDropDown">
                      </select>
+                         <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please select a polling model:
+                            <select name="pollModel" ng-model="pollModel">
+                                 <option value='PollLite'>PollLite</option>
+                                 <option value='PollClassic'>PollClassic</option>
+                                 <option value='PollDeluxe'>PollDeluxe</option>
+                            </select>
                      <button type="button" ng-click="GetLeastLikely();GetClosestRace();GetAllMembers()" class="button">Inform Me</button>
 
                     <div class="container">
