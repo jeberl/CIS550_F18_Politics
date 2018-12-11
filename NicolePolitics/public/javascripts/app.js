@@ -23,13 +23,9 @@ app.controller('CommitteeController', function($scope, $http) {
             console.log('err');
         });
     };
-});
 
-// Controller for "Closest Committee Race" on Committee Page
-app.controller('closestCommitteeController', function($scope, $http) {
-    $scope.message="";
     $scope.GetClosestRace = function() {
-        var request = $http.post('/closestCommitteeData/'+$scope.comcode+'/'+$scope.subcomcode);
+        var request = $http.post('/closestCommitteeData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee);
         request.success(function(data) {
             $scope.Cdata = data;
             console.log($scope.Cdata);
@@ -38,13 +34,9 @@ app.controller('closestCommitteeController', function($scope, $http) {
             console.log('err');
         });
     };
-});
 
-// Controller for "Least Likely to be Re-elected" on Committee Page
-app.controller('leastLikelyCommitteeController', function($scope, $http) {
-    $scope.message="";
     $scope.GetLeastLikely = function() {
-        var request = $http.post('/leastLikelyData/'+$scope.comcode+'/'+$scope.subcomcode);
+        var request = $http.post('/leastLikelyData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee);
         request.success(function(data) {
             $scope.Ldata = data;
             console.log($scope.Ldata);
@@ -53,13 +45,9 @@ app.controller('leastLikelyCommitteeController', function($scope, $http) {
             console.log('err');
         });
     };
-});
 
-// Controller for "Get All Committees" on Committee Page
-app.controller('allMembersOnCommitteeController', function($scope, $http) {
-    $scope.message="";
     $scope.GetAllMembers = function() {
-        var request = $http.post('/allMemberOnComData/'+$scope.comcode+'/'+$scope.subcomcode);
+        var request = $http.post('/allMemberOnComData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee);
         request.success(function(data) {
             $scope.Adata = data;
             console.log(data);
