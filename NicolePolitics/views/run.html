@@ -12,12 +12,18 @@
          <div class="container">
             <!-- Main component for a primary marketing message or call to action-->
             <div class="jumbotron">
-         <div ng-controller="runningController">
-        <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Enter state and district information:
-        </p>
-            State: <input type="text" name="state" ng-model="state" value=""/></br>
-            District: <input type="text" name="district" ng-model="district" value=""/></br>
-            <button type="button" ng-click="Running()" class="button">Show Candidates!</button></br>
+                <div ng-controller="runningController">
+                    <p>
+                    Select a State
+                    </p>
+                     <select name="stateDrop" ng-model="stateDrop" ng-options="x.committee_id for x in stateDropDown" ng-change="getStates()">
+                     </select>
+                     <p>
+                    Select a District
+                    </p>
+                     <select name="districtDrop" ng-model="districtDrop" ng-options="x.subcommittee for x in districtDrop">
+                     </select>
+                    <button type="button" ng-click="Running()" class="button">Show Candidates!</button></br>
         
         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
             <tr> 
