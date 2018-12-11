@@ -4,17 +4,25 @@ var path = require('path');
 
 // Connect string to mysql - UNCOMMENT ABOVE TO CONNECT TO ORACLE
 var mysql = require('mysql');
-var connection = mysql.createConnection({
+var mysql_connection = mysql.createConnection({
   host     : 'cis550project.cf6ohcdz76sh.us-east-2.rds.amazonaws.com',
   user     : 'cis550project',
   password : 'cis550project',
   database : 'Politics'
 });
 
-connection.connect(function(err) {
-  if (err) throw err;
+mysql_connection.connect(function(err) {
+  if (err) {
+    console.log("Could not connect to MySQL.\n Aborting.")
+    //throw err;
+  }
   console.log("Connected!");
 });
+
+
+var AWS = require('aws-sdk');
+var dynamo = new AWS.DynamoDB({region: "us-west-2"});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -55,13 +63,33 @@ router.get('/3.png', function(req, res, next) {
 
 // Route handler for getting all committees
 router.get('/committeeDropDown', function(req, res) {
-  var query = 'SELECT DISTINCT committee_id FROM CommitteeAssignment ORDER BY committee_id ASC';
-  connection.query(query, function(err, rows, fields) {
-    if (err) console.log(err);
-      else {
-        res.json(rows);
-      };
-    });
+  var table = "Committees2";
+
+  var params = {
+      TableName: table,
+      AttributesToGet: ['committee_id', 'full_committee_name']
+  };
+
+  dynamo.scan(params, function(err, data) {
+    if (err) {
+      console.log("Unable to connect to Dynamo. Attempting to get committees using MySQL");
+      var query = 'SELECT DISTINCT committee_id FROM CommitteeAssignment ORDER BY committee_id ASC';
+      mysql_connection.query(query, function(err, rows, fields) {
+        if (err) console.log(err);
+        else {
+          console.log(rows);
+          res.json(rows);
+        };
+        });
+    } else {
+      const new_data = data.Items.map(function(x) {
+        return {"committee_id": x.committee_id.S, "full_committee_name": x.full_committee_name.M.S.S};
+      });
+      console.log("Mapped to: " + "\n" + JSON.stringify(new_data, undefined, 2));
+      res.json(new_data)
+    }
+  });
+
 });
 
 // Route hanlder for getting all subcommittees for a specific committee
@@ -69,7 +97,7 @@ router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
   console.log(req.params.committeeDrop);
   var query = 'SELECT DISTINCT subcommittee FROM CommitteeAssignment WHERE committee_id = \''
               +req.params.committeeDrop+'\' ORDER BY subcommittee ASC';
-  connection.query(query, function(err, rows, fields) {
+  mysql_connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
       else {
         console.log('Executed Query!');
@@ -99,7 +127,7 @@ router.post('/closestCommitteeData/:comcode/:subcomcode', function(req, res) {
               'WHERE committee_id = \''+comcode+'\') ca JOIN Member m ON ca.state = m.state AND '+
               'ca.district = m.district JOIN PollLite p ON m.state = p.state AND '+
               'm.district = p.district)';
-	connection.query(query, function(err, rows, fields) {
+	mysql_connection.query(query, function(err, rows, fields) {
     if (err) console.log(err)
       else {
         res.json(rows);
@@ -125,7 +153,7 @@ router.post('/leastLikelyData/:comcode/:subcomcode', function(req, res) {
               +comcode+'\') ca JOIN Member m ON ca.state = m.state AND ca.district ='+
               ' m.district JOIN PollLite p ON m.state = p.state AND m.district = '+
               'p.district WHERE p.is_incumbent = 1)';
-  connection.query(query, function(err, rows, fields) {
+  mysql_connection.query(query, function(err, rows, fields) {
     if (err) console.log(err); else {
       res.json(rows);
     }});
@@ -142,7 +170,7 @@ router.post('/allMemberOnComData/:comcode/:subcomcode', function(req, res) {
   var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state, m.district, m.phone '+
               'FROM Member m JOIN CommitteeAssignment ca ON m.district = ca.district '+
               'AND m.state = ca.state WHERE ca.committee_id = \''+comcode+'\'';
-  connection.query(query, function(err, rows, fields) {
+  mysql_connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
      else {
       res.json(rows);
@@ -153,7 +181,7 @@ router.post('/allMemberOnComData/:comcode/:subcomcode', function(req, res) {
 // Route handler for getting all states
 router.get('/stateDropDown', function(req, res) {
   var query = 'SELECT DISTINCT state FROM Member ORDER BY state ASC';
-  connection.query(query, function(err, rows, fields) {
+  mysql_connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
       else {
         res.json(rows);
@@ -166,7 +194,7 @@ router.post('/districtData/:stateDrop', function(req, res) {
   console.log(req.params.stateDrop);
   var query = 'SELECT DISTINCT district FROM Member WHERE state = \''
               +req.params.stateDrop+'\' ORDER BY state ASC';
-  connection.query(query, function(err, rows, fields) {
+  mysql_connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
       else {
         console.log('Executed Query!');
@@ -185,7 +213,7 @@ router.get('/runningData/:state/:district', function(req,res) {
               'win_probability as winProbability, is_incumbent as isIncumbent FROM ' +
               'PollLite WHERE state = \''+req.params.state+'\'AND district = \''
               +req.params.district+'\''
-  connection.query(query, function(err, rows, fields) {
+  mysql_connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
       console.log("Success running query!");
