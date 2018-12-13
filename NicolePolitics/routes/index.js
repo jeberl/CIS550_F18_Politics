@@ -2,9 +2,6 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-// const back = require('../public/javascripts/backend');
-// const Backend = new back.Backend();
-
 var mysql = require('mysql');
 var AWS = require('aws-sdk');
 
@@ -178,7 +175,7 @@ router.post('/leastLikelyData/:comcode/:subcomcode/:pollModel', function(req, re
     subcomcode = '00';
   }
   console.log("least likely --> comcode = " + comcode);
-  var query = 'SELECT DISTINCT m.firstname, m.lastname, p.state, p.district '+
+  var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state_fullname, p.district '+
               'FROM (SELECT * FROM CommitteeAssignment WHERE committee_id = \''
               +comcode+'\' AND subcommittee = \''+subcomcode+'\') ca JOIN Member m ON ca.state = m.state AND ca.district'+
               ' = m.district JOIN '+pollModel+' p ON m.state = p.state AND m.district = '+
@@ -199,9 +196,8 @@ router.post('/allMemberOnComData/:comcode/:subcomcode', function(req, res) {
   var subcomcode = req.params.subcomcode;
   if (subcomcode === 'undefined') {
     subcomcode = '00';
-    console.log("sub is 0");
   }
-  var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state, m.district, m.phone '+
+  var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state_fullname, m.district, m.phone '+
               'FROM Member m JOIN CommitteeAssignment ca ON m.district = ca.district '+
               'AND m.state = ca.state WHERE ca.committee_id = \''+comcode+'\' AND subcommittee = \''+subcomcode+'\'';
   mysqlConnection.query(query, function(err, rows, fields) {
@@ -214,7 +210,7 @@ router.post('/allMemberOnComData/:comcode/:subcomcode', function(req, res) {
 
 // Route handler for getting all states
 router.get('/stateDropDown', function(req, res) {
-  var query = 'SELECT DISTINCT state FROM Member ORDER BY state ASC';
+  var query = 'SELECT DISTINCT state_fullname FROM Member ORDER BY state_fullname ASC';
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
       else {
@@ -223,7 +219,7 @@ router.get('/stateDropDown', function(req, res) {
     });
 });
 
-// Route hanlder for getting all disticts for a specific state
+// Route hanlder for getting all districts for a specific state
 router.post('/districtData/:stateDrop', function(req, res) {
   var query = 'SELECT DISTINCT district FROM Member WHERE state = \''
               +req.params.stateDrop+'\' ORDER BY state ASC';
@@ -254,12 +250,12 @@ router.get('/tightData/:threshold/:pollModel', function(req,res) {
   var threshold =  req.params.threshold;
   var pollModel = req.params.pollModel;
   var query = 'SELECT DISTINCT p1.state, p1.district, p1.candidate_first as '+
-              'leadFirstname, p1.candidate_last as leadLastname, p1.win_probability as '+
-              'leadWinProbability, p2.candidate_first as behindFirstname, p2.candidate_last '+
-              'as behindLastname, p2.win_probability as behindWinProbability FROM '+pollModel+
+              'leadFirstname, p1.win_probability as '+
+              'leadWinProbability, p2.candidate_first as behindFirstname, p2.win_probability as behindWinProbability FROM '
+              +pollModel+
               ' p1 JOIN '+pollModel+' p2 ON p1.state = p2.state AND p1.district = p2.district '+
               'WHERE abs(p1.win_probability - p2.win_probability) <= '+threshold+
-              ' and p1.win_probability >= '+threshold+' and p1.candidate_last > p2.candidate_last';
+              ' and p1.win_probability >= 20 and p1.candidate_last > p2.candidate_last';
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
@@ -270,7 +266,7 @@ router.get('/tightData/:threshold/:pollModel', function(req,res) {
 
 // Route handler for "Number of Reps per state"
 router.get('/repData', function(req,res) {
-  var query = 'SELECT state, COUNT(*) AS numReps FROM Member GROUP BY state ASC';
+  var query = 'SELECT state_fullname, COUNT(*) AS numReps FROM Member GROUP BY state ASC';
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
