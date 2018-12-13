@@ -39,7 +39,7 @@ router.get('/run', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'run.html'));
 });
 
-// Add a new page for who's running
+// Add navigation bar
 router.get('/navbar', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'navbar.html'));
 });
@@ -85,7 +85,6 @@ router.get('/committeeDropDown', function(req, res) {
       mysqlConnection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
         else {
-          console.log(rows);
           res.json(rows);
         };
         });
@@ -99,7 +98,7 @@ router.get('/committeeDropDown', function(req, res) {
 
 });
 
-// Route hanlder for getting all subcommittees for a specific committee
+// Route handler for getting all subcommittees for a specific committee
 router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
   const cid = req.params.committeeDrop
 
@@ -122,7 +121,6 @@ router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
       mysqlConnection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
         else {
-          console.log(rows);
           res.json(rows);
         };
       });
@@ -146,9 +144,7 @@ router.post('/closestCommitteeData/:comcode/:subcomcode/:pollModel', function(re
 	var comcode = req.params.comcode;
 	var subcomcode = req.params.subcomcode;
   var pollModel = req.params.pollModel;
-  console.log("pollModel = " + pollModel);
   if (subcomcode === 'undefined') {
-    console.log("sub is 0");
     subcomcode = '00';
   }
 	var query = 'SELECT DISTINCT m.firstname, m.lastname, p.win_probability as winProbability FROM'+
@@ -229,13 +225,11 @@ router.get('/stateDropDown', function(req, res) {
 
 // Route hanlder for getting all disticts for a specific state
 router.post('/districtData/:stateDrop', function(req, res) {
-  console.log(req.params.stateDrop);
   var query = 'SELECT DISTINCT district FROM Member WHERE state = \''
               +req.params.stateDrop+'\' ORDER BY state ASC';
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
       else {
-        console.log('Executed Query!');
         res.json(rows);
       };
     });
@@ -243,8 +237,6 @@ router.post('/districtData/:stateDrop', function(req, res) {
 
 // Route handler for "Who's Running"
 router.get('/runningData/:state/:district', function(req,res) {
-  console.log("state = " + req.params.state);
-  console.log("district = " + req.params.district);
   var query = 'SELECT candidate_first as firstname, candidate_last as lastname, party, ' + 
               'win_probability as winProbability, is_incumbent as isIncumbent FROM ' +
               'PollLite WHERE state = \''+req.params.state+'\'AND district = \''
@@ -252,7 +244,6 @@ router.get('/runningData/:state/:district', function(req,res) {
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      console.log("Success running query!");
         res.json(rows);
     }  
     });
@@ -272,7 +263,6 @@ router.get('/tightData/:threshold/:pollModel', function(req,res) {
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      console.log("Success running query!");
         res.json(rows);
     }  
     });
@@ -284,7 +274,6 @@ router.get('/repData', function(req,res) {
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      console.log("Success running query!");
         res.json(rows);
     }  
     });
