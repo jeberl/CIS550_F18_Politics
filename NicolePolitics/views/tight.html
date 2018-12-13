@@ -2,10 +2,11 @@
 <html ng-app="angularjsNodejsTutorial">
     <head>
         <div ng-include src="'/navbar'"> </div>
-        <title>Please enter committee information</title>
+        <title>Politics</title>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
         <script src="javascripts/app.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/global.css">
     </head>
         <body data-spy="scroll" data-target=".scrollspy">
             <header></header>
@@ -15,31 +16,29 @@
                             <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a race threshold:
                             <input name="threshold" ng-model="threshold" value="">
                              <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please select a polling model:
+                             <div class="styled-select blue rounded">
                             <select name="pollModel" ng-model="pollModel" id="pollModelDropDown">
                                  <option value='PollLite'>PollLite</option>
                                  <option value='PollClassic'>PollClassic</option>
                                  <option value='PollDeluxe'>PollDeluxe</option>
                             </select>
-                            <button type="button" ng-click="GetTight()" class="button">Show Races</button>
+                            </div>
+                            <button type="button" ng-click="GetTight()" class="blue">Show Races</button>
                             </p>
-                         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+                         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center" id="data"> 
                             <tr> 
                             <td> State </td>
                             <td> District </td>
-                            <td> Leader First Name </td>
-                            <td> Leader Last Name </td>
+                            <td> Leader </td>
                             <td> Leader Win Probability </td>
-                            <td> Behind First Name </td>
-                            <td> Behind Last Name </td>
+                            <td> Behind </td>
                             <td> Behind Win Probability </td>
                             <tr ng-repeat="x in tightdata"> 
                             <td> {{x.state}} </td>
                             <td> {{x.district}} </td>
                             <td> {{x.leadFirstname}} </td>
-                            <td> {{x.leadLastname}} </td>
                             <td> {{x.leadWinProbability}} </td>
                             <td> {{x.behindFirstname}} </td>
-                            <td> {{x.behindLastname}} </td>
                             <td> {{x.behindWinProbability}} </td>
                             </tr>
                         </table>
