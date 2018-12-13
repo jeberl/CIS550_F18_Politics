@@ -246,13 +246,13 @@ router.get('/tightData/:threshold/:pollModel', function(req,res) {
   var threshold =  req.params.threshold;
   var pollModel = req.params.pollModel;
   var query = 'SELECT DISTINCT p1.state, p1.district, p1.candidate_first as '+
-              'leadFirstname, p1.win_probability as '+
+              'leadFirstname, p1.party as leadParty, p1.win_probability as '+
               'leadWinProbability, p2.candidate_first as behindFirstname, '+
-              'p2.win_probability as behindWinProbability FROM '+pollModel+
-              ' p1 JOIN '+pollModel+' p2 ON p1.state = p2.state AND p1.district = p2.district '+
-              'WHERE abs(p1.win_probability - p2.win_probability) <= '+threshold+
-              ' AND (p1.win_probability > p2.win_probability OR p1.win_probability = 50)' +
-              ' AND p1.candidate_first <> p2.candidate_first AND '+
+              'p2.party as behindParty, p2.win_probability as behindWinProbability FROM '
+              +pollModel+' p1 JOIN '+pollModel+' p2 ON p1.state = p2.state AND '+
+              'p1.district = p2.district WHERE abs(p1.win_probability - p2.win_probability) <= '
+              +threshold+' AND (p1.win_probability > p2.win_probability OR '+
+              'p1.win_probability = 50)' +' AND p1.candidate_first <> p2.candidate_first AND '+
               '(p1.state, p1.district, p1.win_probability) IN '+
               '(SELECT w.state, w.district, MAX(w.win_probability) FROM '+pollModel+
               ' w WHERE w.state = p1.state AND w.district = p1.district)';

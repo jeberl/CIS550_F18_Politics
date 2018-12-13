@@ -6,6 +6,7 @@
    height: 29px;
    overflow: hidden;
    width: 240px;
+   color: grey;
 }
 
 .styled-select select {
@@ -15,6 +16,7 @@
    height: 29px;
    padding: 5px; /* If you add too much padding here, the options won't show in IE */
    width: 268px;
+   color: grey;
 }
 
 /* -------------------- Rounded Corners */
@@ -40,7 +42,7 @@
 /* -------------------- Colors: Text */
 .slate select   { color: #000; }
 .green select   { color: #fff; }
-.blue select    { color: #fff; }
+.blue select    { color: grey; }
 .yellow select  { color: #000; }
 .black select   { color: #fff; }
 
