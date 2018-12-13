@@ -1,8 +1,5 @@
 var app = angular.module('angularjsNodejsTutorial',[]);
 
-
-
-
 // Controller for the Committee Page
 app.controller('CommitteeController', function($scope, $http) {
     $scope.message="";
@@ -91,13 +88,11 @@ app.controller('runningController', function($scope, $http) {
             request.success(function(data) {
                 candidatesCache[state + '-' + district] = data;
                 $scope.rundata = data;
-                console.log("data:"+data);
             });
             request.error(function(data){
                 console.log('err');
             });
         } else {
-            console.log("cache:" + cacheData);
             $scope.rundata = cacheData;
         }
     };
