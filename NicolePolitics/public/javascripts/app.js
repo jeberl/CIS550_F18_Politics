@@ -66,7 +66,8 @@ app.controller('runningController', function($scope, $http) {
     });
 
     $scope.PopulateDistrictDrop = function() {
-        var request = $http.post('/districtData/'+$scope.stateDrop.state);
+        var threshold = document.getElementById('thresholdDropDown').value;
+        var request = $http.post('/districtData/'+threshold);
         request.success(function(data) {
             $scope.districtDropDown = data;
         });
@@ -76,7 +77,8 @@ app.controller('runningController', function($scope, $http) {
     };
 
     $scope.Running = function() {
-        var request = $http.get('/runningData/'+$scope.stateDrop.state+'/'+$scope.districtDrop.district);
+        var threshold = document.getElementById('thresholdDropDown').value;
+        var request = $http.get('/runningData/'+threshold+'/'+$scope.districtDrop.district);
         request.success(function(data) {
             $scope.rundata = data;
         });
