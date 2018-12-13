@@ -1,5 +1,8 @@
 var app = angular.module('angularjsNodejsTutorial',[]);
 
+
+
+
 // Controller for the Committee Page
 app.controller('CommitteeController', function($scope, $http) {
     $scope.message="";
@@ -11,9 +14,6 @@ app.controller('CommitteeController', function($scope, $http) {
     request.error(function(data){
         console.log('err');
     });
-
-    var candidatesCache = {};
-
 
     $scope.populateSubDrop = function() {
         var request = $http.post('/SubCommitteeData/'+$scope.committeeDrop.committee_id);
@@ -60,6 +60,8 @@ app.controller('CommitteeController', function($scope, $http) {
 
 // Controller for "Who's Running?" page
 app.controller('runningController', function($scope, $http) {
+    var candidatesCache = {};
+
     var request = $http.get('/stateDropDown');
     request.success(function(data) {
         $scope.stateDropDown = data;
@@ -82,6 +84,7 @@ app.controller('runningController', function($scope, $http) {
         console.log("ran running");
         const state = $scope.stateDrop.state;
         const district = $scope.districtDrop.district;
+        
         var cacheData = candidatesCache[state + '-' + district];
         if (cacheData == undefined) {
             var request = $http.get('/runningData/' + state + '/' + district);
