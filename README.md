@@ -2,4 +2,4 @@
 
 ## Running Application
 
-Run node app from within the NicolePolitics folder to launch app
+Run node app from within the PoliticsApp folder to launch app
