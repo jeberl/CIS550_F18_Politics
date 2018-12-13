@@ -79,15 +79,16 @@ app.controller('runningController', function($scope, $http) {
     };
 
     $scope.Running = function() {
+        console.log("ran runnign");
         const state = $scope.stateDrop.state;
         const district = $scope.districtDrop.district;
         var cacheData = candidatesCache[state + '-' + district];
         if (candidatesCache[state + '-' + district] == undefined) {
-            var request = $http.get('/runningData/'+state+'/'+district);
+            var request = $http.get('/runningData/' + state + '/' + district);
             request.success(function(data) {
                 candidatesCache[state + '-' + district] = data;
                 $scope.rundata = data;
-                console.log("data:"data);
+                console.log("data:"+data);
             });
             request.error(function(data){
                 console.log('err');
