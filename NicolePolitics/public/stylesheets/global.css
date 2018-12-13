@@ -147,7 +147,35 @@ button.blue:active {
     box-shadow: inset 0 2px 5px #2370FE;   
 }
 
+#data {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#data td, #data th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#data tr:nth-child(even){background-color: #f2f2f2;}
+
+#data tr:hover {background-color: #ddd;}
+
+#data th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
 /* Our CSS */
 .container {
    width: 100%;
+   text-decoration: none;
+}
+
+.jumbotron {
+   background: white;
 }

@@ -255,7 +255,8 @@ router.get('/tightData/:threshold/:pollModel', function(req,res) {
               +pollModel+
               ' p1 JOIN '+pollModel+' p2 ON p1.state = p2.state AND p1.district = p2.district '+
               'WHERE abs(p1.win_probability - p2.win_probability) <= '+threshold+
-              ' and p1.win_probability >= 20 and p1.candidate_last > p2.candidate_last';
+              ' and (p1.win_probability > p2.win_probability or p1.win_probability = 50)' +
+              ' and p1.candidate_first <> p2.candidate_first ';
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
