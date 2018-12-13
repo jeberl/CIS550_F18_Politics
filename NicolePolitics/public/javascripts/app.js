@@ -12,6 +12,9 @@ app.controller('CommitteeController', function($scope, $http) {
         console.log('err');
     });
 
+    var candidatesCache = {};
+
+
     $scope.populateSubDrop = function() {
         var request = $http.post('/SubCommitteeData/'+$scope.committeeDrop.committee_id);
         request.success(function(data) {
@@ -76,20 +79,27 @@ app.controller('runningController', function($scope, $http) {
     };
 
     $scope.Running = function() {
-        var request = $http.get('/runningData/'+$scope.stateDrop.state+'/'+$scope.districtDrop.district);
-        request.success(function(data) {
-            $scope.rundata = data;
-        });
-        request.error(function(data){
-            console.log('err');
-        });
-    
+        const state = $scope.stateDrop.state;
+        const district = $scope.districtDrop.district;
+        var cacheData = candidatesCache[state + '-' + district];
+        if (candidatesCache[state + '-' + district] == undefined) {
+            var request = $http.get('/runningData/'+state+'/'+district);
+            request.success(function(data) {
+                candidatesCache[state + '-' + district] = data;
+                $scope.rundata = data;
+                console.log("data:"data);
+            });
+            request.error(function(data){
+                console.log('err');
+            });
+        }
+        console.log("cache:" + candidatesCache[state + '-' + district]);
+        $scope.rundata = candidatesCache[state + '-' + district];
     };
 });
 
 // Controller for "Tight Race" page
 app.controller('tightController', function($scope, $http) {
-
     $scope.GetTight = function() {
         var pollModel = document.getElementById('pollModelDropDown').value;
         var threshold = document.getElementById('thresholdDropDown').value;
