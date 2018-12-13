@@ -87,7 +87,7 @@ router.get('/committeeDropDown', function(req, res) {
         });
     } else {
       const new_data = data.Items.map(function(x) {
-        return {"committee_id": x.committee_id.S, "full_committee_name": x.full_committee_name.M.S.S};
+        return {"committee_id": x.committee_id.S.substring(0,2), "full_committee_name": x.full_committee_name.M.S.S};
       });
       res.json(new_data)
     }
@@ -98,12 +98,12 @@ router.get('/committeeDropDown', function(req, res) {
 // Route handler for getting all subcommittees for a specific committee
 router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
   const cid = req.params.committeeDrop
-
+  console.log("cid = " + cid);
   const params = {
       TableName: dynamoTable,
       Key:{
         "committee_id": {
-          S: cid
+          S: cid + "00"
         }
       },
       ProjectionExpression: "subcomittees"
@@ -122,9 +122,11 @@ router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
         };
       });
     } else {
+      console.log(data)
       const sub_coms = data.Item.subcomittees.M.L.L;
       var new_data = sub_coms.map(function(x) {
-        return {"subcommittee_id": x.M.subcommittee_code.M.S.S, "full_subcommittee_name": x.M.full_subcommittee_name.M.S.S};
+        sub_com = x.M.subcommittee_code.M.S.S.substring(2,4);
+        return {"subcommittee_id": parseInt(sub_com), "full_subcommittee_name": x.M.full_subcommittee_name.M.S.S};
       });
 
       if (new_data[0] == undefined) {
@@ -141,6 +143,7 @@ router.post('/closestCommitteeData/:comcode/:subcomcode/:pollModel', function(re
 	var comcode = req.params.comcode;
 	var subcomcode = req.params.subcomcode;
   var pollModel = req.params.pollModel;
+  console.log(req.params)
   if (subcomcode === 'undefined') {
     subcomcode = '00';
   }

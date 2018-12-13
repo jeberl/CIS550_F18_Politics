@@ -24,7 +24,7 @@ app.controller('CommitteeController', function($scope, $http) {
 
     $scope.GetClosestRace = function() {
         var pollModel = document.getElementById('pollModelDropDown').value;
-        var request = $http.post('/closestCommitteeData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee+"/"+pollModel);
+        var request = $http.post('/closestCommitteeData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee_id+"/"+pollModel);
         request.success(function(data) {
             $scope.Cdata = data;
         });
@@ -35,7 +35,7 @@ app.controller('CommitteeController', function($scope, $http) {
 
     $scope.GetLeastLikely = function() {
         var pollModel = document.getElementById('pollModelDropDown').value;
-        var request = $http.post('/leastLikelyData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee+"/"+pollModel);
+        var request = $http.post('/leastLikelyData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee_id+"/"+pollModel);
         request.success(function(data) {
             $scope.Ldata = data;
         });
@@ -45,7 +45,7 @@ app.controller('CommitteeController', function($scope, $http) {
     };
 
     $scope.GetAllMembers = function() {
-        var request = $http.post('/allMemberOnComData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee);
+        var request = $http.post('/allMemberOnComData/'+$scope.committeeDrop.committee_id+'/'+$scope.subcommitteeDrop.subcommittee_id);
         request.success(function(data) {
             $scope.Adata = data;
         });
