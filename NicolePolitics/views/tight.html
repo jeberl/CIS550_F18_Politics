@@ -13,20 +13,20 @@
             <div class="container">
                 <div class="jumbotron">
                     <div ng-controller="tightController">
-                            <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a race threshold:
-                            <!-- <input name="threshold" ng-model="threshold" value=""> -->
-                            <select name="threshold" ng-model="threshold" id="thresholdDropDown" ng-change="PopulateDistrictDrop()">
-                                 <option value='0'>0</option>
-                                 <option value='1'>1</option>
-                                 <option value='2'>2</option>
-                                 <option value='3'>3</option>
-                                 <option value='4'>4</option>
-                                 <option value='5'>5</option>
-                                 <option value='6'>6</option>
-                                 <option value='7'>7</option>
-                                 <option value='8'>8</option>
-                                 <option value='9'>9</option>
-                                 <option value='10'>10</option>
+                            <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a race threshold in number of percentage points separating the top two candidates:
+                                <br>
+                            <select name="threshold" ng-model="threshold" id="thresholdDropDown">
+                                 <option value='0'>0%</option>
+                                 <option value='1'>1%</option>
+                                 <option value='2'>2%</option>
+                                 <option value='3'>3%</option>
+                                 <option value='4'>4%</option>
+                                 <option value='5'>5%</option>
+                                 <option value='6'>6%</option>
+                                 <option value='7'>7%</option>
+                                 <option value='8'>8%</option>
+                                 <option value='9'>9%</option>
+                                 <option value='10'>10%</option>
                             </select>
                              <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please select a polling model:
                              <div class="styled-select blue rounded">

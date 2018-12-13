@@ -97,8 +97,7 @@ router.get('/committeeDropDown', function(req, res) {
 
 // Route handler for getting all subcommittees for a specific committee
 router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
-  const cid = req.params.committeeDrop
-  console.log("cid = " + cid);
+  const cid = req.params.committeeDrop;
   const params = {
       TableName: dynamoTable,
       Key:{
@@ -111,7 +110,6 @@ router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
   
   dynamo.getItem(params, function(err, data) {
     if (err) {
-      console.log("err: " + "\n" + JSON.stringify(err, undefined, 2));
       console.log("Unable to connect to Dynamo. Attempting to get committees using MySQL");
       var query = 'SELECT DISTINCT subcommittee FROM CommitteeAssignment WHERE committee_id = \''
               +cid.substring(0,2)+'\' ORDER BY subcommittee ASC';
@@ -122,7 +120,6 @@ router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
         };
       });
     } else {
-      console.log(data)
       const sub_coms = data.Item.subcomittees.M.L.L;
       var new_data = sub_coms.map(function(x) {
         sub_com = x.M.subcommittee_code.M.S.S.substring(2,4);
@@ -132,7 +129,6 @@ router.post('/SubCommitteeData/:committeeDrop', function(req, res) {
       if (new_data[0] == undefined) {
         new_data = [{"full_subcommittee_name": "No Subcomittees"}];
       }
-      console.log("data: " + "\n" + JSON.stringify(new_data, undefined, 2));
       res.json(new_data);
     }
   });
@@ -143,7 +139,6 @@ router.post('/closestCommitteeData/:comcode/:subcomcode/:pollModel', function(re
 	var comcode = req.params.comcode;
 	var subcomcode = req.params.subcomcode;
   var pollModel = req.params.pollModel;
-  console.log(req.params)
   if (subcomcode === 'undefined') {
     subcomcode = '00';
   }
@@ -174,10 +169,8 @@ router.post('/leastLikelyData/:comcode/:subcomcode/:pollModel', function(req, re
   var subcomcode = req.params.subcomcode;
   var pollModel = req.params.pollModel;
   if (subcomcode === 'undefined') {
-    console.log("sub is 0");
     subcomcode = '00';
   }
-  console.log("least likely --> comcode = " + comcode);
   var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state_fullname, p.district '+
               'FROM (SELECT * FROM CommitteeAssignment WHERE committee_id = \''
               +comcode+'\' AND subcommittee = \''+subcomcode+'\') ca JOIN Member m ON ca.state = m.state AND ca.district'+
@@ -213,7 +206,7 @@ router.post('/allMemberOnComData/:comcode/:subcomcode', function(req, res) {
 
 // Route handler for getting all states
 router.get('/stateDropDown', function(req, res) {
-  var query = 'SELECT DISTINCT state_fullname FROM Member ORDER BY state_fullname ASC';
+  var query = 'SELECT DISTINCT state, state_fullname FROM Member ORDER BY state_fullname ASC';
   mysqlConnection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
       else {

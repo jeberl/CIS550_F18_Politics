@@ -66,8 +66,7 @@ app.controller('runningController', function($scope, $http) {
     });
 
     $scope.PopulateDistrictDrop = function() {
-        var threshold = document.getElementById('thresholdDropDown').value;
-        var request = $http.post('/districtData/'+threshold);
+        var request = $http.post('/districtData/'+$scope.stateDrop.state);
         request.success(function(data) {
             $scope.districtDropDown = data;
         });
@@ -77,8 +76,7 @@ app.controller('runningController', function($scope, $http) {
     };
 
     $scope.Running = function() {
-        var threshold = document.getElementById('thresholdDropDown').value;
-        var request = $http.get('/runningData/'+threshold+'/'+$scope.districtDrop.district);
+        var request = $http.get('/runningData/'+$scope.stateDrop.state+'/'+$scope.districtDrop.district);
         request.success(function(data) {
             $scope.rundata = data;
         });
@@ -94,7 +92,8 @@ app.controller('tightController', function($scope, $http) {
 
     $scope.GetTight = function() {
         var pollModel = document.getElementById('pollModelDropDown').value;
-        var request = $http.get('/tightData/'+$scope.threshold+'/'+pollModel);
+        var threshold = document.getElementById('thresholdDropDown').value;
+        var request = $http.get('/tightData/'+threshold+'/'+pollModel);
         request.success(function(data) {
             $scope.tightdata = data;
         });
