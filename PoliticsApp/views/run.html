@@ -45,7 +45,7 @@
             <td> {{x.lastname}} </td>
             <td> {{x.party}} </td>
             <td> {{x.winProbability}} </td>
-            <td> {{x.isIncumbent}} </td>
+            <td> <div ng-if="x.isIncumbent == 1"> INCUMBENT </td>
             </tr>
         </table>
         </div>
