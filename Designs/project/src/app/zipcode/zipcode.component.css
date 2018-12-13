@@ -1,0 +1,28 @@
+h1{
+    color: white;
+}
+h2{
+    color: white;
+}
+
+img{
+    border-radius: 100%; 
+}
+
+.style-md-4{
+    text-align: center;
+}
+.img-center{
+    margin: auto;
+}
+.margin-top{
+    margin-top: 40px; 
+}
+
+.btn-design{
+    padding: 13px 82px;
+    border: 3px solid #C6C6C6;
+    background: white;
+    /* font-style: oblique; */
+    font-weight: 900;
+}

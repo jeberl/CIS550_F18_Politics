@@ -1,0 +1,22 @@
+.div-design{
+    background: #eaeaea7d;
+    margin-bottom: 42px;
+    width: 499px;
+    overflow: hidden;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.set-weight{
+    font-weight: bolder;
+}
+.set-dist{
+    width: 78%;
+    float: left;
+    margin: 2px !important
+}
+.per-dist{
+    width: 20%;
+    float: left;
+    margin: 2px !important
+}

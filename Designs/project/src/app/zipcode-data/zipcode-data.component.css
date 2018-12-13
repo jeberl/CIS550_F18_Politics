@@ -1,0 +1,12 @@
+.div-design{
+    background: #eaeaea7d;
+    margin-bottom: 42px;
+    width: 299px;
+    overflow: hidden;
+    border-radius: 23px;
+    padding: 23px;
+}
+
+.set-weight{
+    font-weight: bolder;
+}
