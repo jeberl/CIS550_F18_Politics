@@ -171,7 +171,7 @@ router.post('/leastLikelyData/:comcode/:subcomcode/:pollModel', function(req, re
   if (subcomcode === 'undefined') {
     subcomcode = '00';
   }
-  var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state_fullname, p.district '+
+  var query = 'SELECT DISTINCT m.firstname, m.lastname, m.state_fullname, p.district, p.win_probability '+
               'FROM (SELECT * FROM CommitteeAssignment WHERE committee_id = \''
               +comcode+'\' AND subcommittee = \''+subcomcode+'\') ca JOIN Member m ON ca.state = m.state AND ca.district'+
               ' = m.district JOIN '+pollModel+' p ON m.state = p.state AND m.district = '+
